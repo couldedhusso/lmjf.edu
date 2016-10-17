@@ -1,0 +1,312 @@
+
+
+#slider {
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+}
+.flexslider, .flexslider ul.slides li, .flex-caption-cell {
+  height: 450px;
+}
+.app-bar .app-bar-element:hover, .app-bar .app-bar-element:active {
+    background-color: inherit;
+}
+
+.app-bar .app-bar-menu > li:hover,
+.app-bar .app-bar-menu > li > a:hover,
+.app-bar .app-bar-menu >  a:hover,
+.app-bar .app-bar-menu > a:active,
+.app-bar .app-bar-menu > li:active,
+.app-bar .app-bar-menu > li > a:active {
+    background-color: inherit;
+    color: #f5f5f5;
+}
+
+.app-bar .app-bar-menu > li .d-menu {
+    top: 100%;
+    border: 2px solid #e67e22;
+}
+.app-bar .app-bar-menu > li .d-menu, .app-bar .app-bar-menu > li > a .d-menu {
+    top: 100%;
+    border: 2px solid #e67e22;
+}
+[data-role="dropdown"]:not(.open), [data-role="dropdown"]:not(.keep-open) {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+}
+.h-menu, .v-menu, .d-menu {
+    border-collapse: separate;
+}
+
+.d-menu {
+    text-align: left;
+    max-width: 15.625rem;
+    list-style: none inside none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: auto;
+    float: left;
+    border-collapse: separate;
+    position: absolute;
+    display: none;
+    z-index: 1000;
+    left: 0;
+    box-shadow: none;
+}
+
+.d-menu .divider {
+    padding: 0;
+    height: 1px;
+    margin: 0 1px;
+    overflow: hidden;
+    background-color: #e67e22;
+}
+
+.feature-box {
+    border: 2px solid #f3f3f3;
+    margin-bottom: 30px;
+    padding: 0 20px 15px 20px;
+    position: relative;
+}
+
+.breadcrumbs {
+    padding: 0 ;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.v-menu {
+    text-align: left;
+    background: #ffffff;
+    list-style: none inside none;
+    margin: 0;
+    padding: 0;
+    max-width: inherit;
+    position: relative;
+    width: 100%;;
+    float: left;
+}
+
+#sidebar ul {
+    padding-left: 0px;
+}
+
+.v-menu li a {
+    color: #727272;
+    font-size: .875rem;
+    display: block;
+    float: none;
+    padding: .75rem 2rem .75rem 2.5rem;
+    text-decoration: none;
+    vertical-align: middle;
+    position: relative;
+    white-space: nowrap;
+    min-width: 12.5rem;
+    border: none;
+}
+
+.v-menu li.active > a {
+    background-color: #E67E22;
+}
+
+.v-menu li a:hover {
+    color: #fff;
+
+}
+
+.v-menu li.active {
+    border-left: 2px solid;
+    border-color: #1ba1e2;
+}
+
+/*// modifier la couleur du parallax*/
+
+.parallax {
+    background-attachment: fixed !important;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #1BB1B2;
+    position: relative;
+}
+
+
+.menu {
+    position: relative;;
+    top: 170px;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 120px);
+    background: #1c1d22;
+    background: #37474F;
+}
+
+.app-bar.fixed-top, .app-bar.fixed-bottom {
+    z-index: 1030;
+    position: fixed;
+}
+
+.app-bar {
+    display: block;
+    width: 100%;
+    position: relative;
+    background-color: #e67e22;
+    color: #ffffff;
+    height: 3.125rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.app-bar {
+    overflow: visible;
+    height: auto;
+}
+.app-bar {
+    display: block;
+    width: 100%;
+    position: relative;
+    background-color: #0072c6;
+    color: #ffffff;
+    height: 3.125rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.fixed-top {
+    top: 0;
+    bottom: auto;
+}
+.fixed-top, .fixed-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+.app-bar {
+    display: block;
+    width: 100%;
+    position: relative;
+    background-color: #e67e22;
+    color: #ffffff;
+    height: 3.125rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*footer {
+	width:100%;
+	height:100px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}*/
+/*
+footer, .push{
+  height: 8em;
+  clear: both;
+}*/
+
+.panel-default {
+    border-color: #d3e0e9;
+}
+.panel {
+    margin-bottom: 22px;
+    background-color: #fff;
+    border: 1px solid #d3e0e9;
+    /*border-radius: 4px;*/
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+
+.panel-default > .panel-heading {
+    color: #333333;
+    /*background-color: #f5f5f5;*/
+    border-color: #d3e0e9;
+}
+.panel-heading {
+    font-size: 15px;
+    font-weight: 400;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    /*border-top-right-radius: 3px;
+    border-top-left-radius: 3px;*/
+}
+
+.panel-flush .panel-body, .panel-flush .panel-header {
+    padding: 0;
+}
+.panel-body {
+    font-weight: 300;
+}
+.panel-body {
+    padding: 15px;
+}
+
+
+.panel-body form, h2{
+    padding: 15px;
+}
+
+.no-border-bottom {
+    border-bottom: 0px solid rgba(0, 0, 0, 0.1);
+}
+.add-padding-15{
+    padding: 15px;
+}
+.spark-settings-stacked-tabs {
+    font-weight: 300;
+}
+
+.spark-settings-stacked-tabs {
+    /*border-radius: 4px;*/
+    font-weight: 300;
+}
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 11px;
+}
+
+.nav > li {
+    position: relative;
+    display: block;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: inherit;;
+}
+
+footer{
+    font-family: "Segoe UI", "Open Sans", serif;
+}
+.panel-body {
+    font-weight: 300;
+}
+.panel-body {
+    padding: 15px;
+}
+
+label, .ui.form .field > label {
+    font-weight: normal;
+}
+
+.mdl-button--orange {
+    color: rgb(232, 162, 11);
+}
