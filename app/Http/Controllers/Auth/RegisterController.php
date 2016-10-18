@@ -36,6 +36,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+
+        // create middleware for super root - user qui peut creer un user root
         $this->middleware('guest');
     }
 

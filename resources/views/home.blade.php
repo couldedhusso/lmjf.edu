@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
- @if(Auth::user()->hasRole('Teacher'))
+ @if(!Auth::user()->hasRole('Teacher'))
   <div class="row">
         {{-- <div class="col-md-4 pull-right">
                <div class="panel panel-default">
@@ -113,7 +113,7 @@
               <span class="pull-left" style="font-size:20px;">Mes evaluations</span>
               <div class="btn-group pull-right">
                    <button class="btn btn-white-grey btn-sm" data-toggle="modal" data-target="#addeval" style="margin-right:5px" title="Nouvelle évaluation"><i class="fa fa-flask" aria-hidden="true"></i></button>
-                   <button class="btn btn-white-grey btn-sm" title="Saisir les notes"><i class="fa fa-plus"></i></button>
+                   <a href="{{url('notes-des-evalautions')}}" class="btn btn-white-grey btn-sm" title="Saisir les notes"><i class="fa fa-plus"></i></a>
                </div>
 
           </div>

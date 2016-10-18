@@ -53,7 +53,7 @@ class EvaluationsController extends Controller
               ->update(['classRoomID' => $value]);
       }
 
-      return redirect('/mes-evaluations');
+      return redirect('/home');
 
   }
 
@@ -83,7 +83,7 @@ class EvaluationsController extends Controller
          ]);
       }
 
-      return redirect('/mes-evaluations');
+      return redirect('/home');
 
   }
 

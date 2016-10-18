@@ -161,7 +161,9 @@ Route::group(['middleware' => 'auth'], function () {
       $studentByclassroom = DB::table('Classroom')
                             ->join('Student', 'Classroom.classRoomID', '='
                             ,'Student.classRoomID')
-                            ->where('Classroom.idTeacher', '=', $idTeacher)
+                            ->join('Teacher', 'Classroom.classRoomID', '='
+                            ,'Teacher.classRoomID')
+                            ->where('Teacher.idTeacher', '=', $idTeacher)
                             ->select('Student.*','Classroom.ClassRoomName', 'Classroom.classRoomID')
                             ->get();
 
@@ -262,7 +264,7 @@ Route::group(['middleware' => 'auth'], function () {
                             ->first();
       $classrooms = DB::select('select * from Classroom');
 
-      return view('Admin.student-registration', compact('classrooms'));
+      return view('Admin.student-registration', compact('classrooms', 'aYear'));
       // return view('Admin.student-registration', compact('studentsCollection'));
   });
 

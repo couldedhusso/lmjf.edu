@@ -8,7 +8,7 @@
       </section><!-- /#sidebar -->
   </div><!-- /.col-md-3 --> --}}
   <!-- My Properties -->
-<form class="ui form" style="margin-left:auto;margin-right:auto" action="/addTeacher" method="POST" enctype="multipart/form-data">
+<form class="ui form" style="margin-left:auto;margin-right:auto" action="{{url('/addTeacher')}}" method="POST" enctype="multipart/form-data">
 <section id="my-properties">
   <div class="my-properties">
     {{-- <div class="col-md-2 col-sm-10 pull-right">
@@ -99,6 +99,20 @@
          </div>
 
          <div id="pp" class="field collapse">
+           <div class="field">
+               {{-- <div class="ui checkbox">
+                 <input name="prof_principal" type="checkbox" tabindex="0" class="hidden">
+                 <label></label>
+               </div> --}}
+
+              <div class="radio">
+                <label><input type="radio" value="1" name="prof_principal">Oui</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" value="0" name="prof_principal">Non</label>
+              </div>
+
+              </div>
               <label>Selectionner ses classes</label>
               <select name="ClassRoomID-pp[]" multiple>
                 @foreach($classrooms as $classroom)

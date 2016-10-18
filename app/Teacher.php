@@ -23,7 +23,7 @@ class Teacher extends Model
      */
 
     protected $fillable = [
-        'idTeacher', 'CourseID', 'classRoomID'
+        'idTeacher', 'CourseID', 'classRoomID', 'pp'
     ];
 
     public function course()

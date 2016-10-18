@@ -26,7 +26,7 @@ class Student extends Model
     protected $fillable = [
        'studentMatricule', 'studentParentID', 'responsableStudent', 'contactresponsableStudent','classRoomID', 'studentName',
        'studentLastName','studentBirthdate', 'studentSexe', 'studentBirthPlace',
-       'studentRegime', 'studentInterne', 'studentAffecte','studentRedoublant'
+       'studentRegime', 'studentInterne', 'studentAffecte','studentRedoublant', 'academicYear'
     ];
 
 

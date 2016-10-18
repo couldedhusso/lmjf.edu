@@ -19,7 +19,7 @@
     </div> --}}
   <div class="col-md-7 col-sm-10">
 
-
+         <input type="hidden" name="studentDatas[anneeScolaire]" value="{{$aYear->academicYear}}">
          <div class="field">
            <label>Données de l'élève </label>
            <div class="fields">

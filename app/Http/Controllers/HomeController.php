@@ -61,14 +61,12 @@ class HomeController extends Controller
         $currentAcademiqueYearStudent = DB::table('Student')->where('academicYear',
                                                   $aYear->academicYear)->get();
 
-        $allTeacher = DB::select('select * from Teacher');
 
         $allTeacher = DB::table('Course')
                             ->join('Teacher', 'Course.courseID', '='
                             ,'Teacher.courseID')
                             ->join('users', 'users.id', '='
                             ,'Teacher.idTeacher')
-                            ->where('Teacher.idTeacher', '=', $idTeacher)
                             ->select('users.*', 'Course.courseName')
                             ->distinct()->get();
 

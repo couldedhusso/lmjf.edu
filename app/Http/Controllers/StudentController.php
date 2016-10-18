@@ -47,6 +47,7 @@ class StudentController extends Controller
         //$avatar = Input::get()
         $reqdata = Input::get('studentDatas');
         $studresp =  Input::get('studentRespoDatas');
+      //  dd($reqdata['anneeScolaire']);
 
         $dParents =[
             'parentFistName' => $studresp['nom']
@@ -75,11 +76,12 @@ class StudentController extends Controller
             ,'studentRedoublant' => $reqdata['doublant']
             ,'responsableStudent' => $studresp['nom'].' '.$studresp['prenom']
             ,'contactresponsableStudent' => $studresp['contact']
+            ,'academicYear' => $reqdata['anneeScolaire']
             ,'studentParentID' => $studentparent->id
         ];
         $newStudent = Student::create($stud);
 
-        return redirect('/');
+        return redirect('/home');
 
     }
 

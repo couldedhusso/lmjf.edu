@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Enseingnant;
+use App\ProfPrincipal;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -23,7 +24,7 @@ class TeacherController extends Controller
        */
       public function __construct()
       {
-          $this->middleware('guest');
+          $this->middleware('auth');
       }
 
       /**
@@ -55,6 +56,7 @@ class TeacherController extends Controller
           $reqdata = Input::except('ClassRoomID' ,'CourseID', 'name', '_token');
           $reqDataClassroom = Input::get('ClassRoomID');
           $reqDataCourse = Input::get('CourseID');
+          $pp = Input::get('prof_principal');
 
           $user = User::create([
               'userFirstName' => $reqdata['teacherFirstName'],
@@ -73,11 +75,24 @@ class TeacherController extends Controller
               $teacher = Enseingnant::create([
                  'idTeacher' => $user->id,
                  'CourseID' => $reqDataCourse,
-                 'classRoomID' => $value
+                 'classRoomID' => $value,
+                 'pp' => $pp
              ]);
           }
 
-          return redirect('/gestion-des-professeurs');
+          if ($pp) {
+
+            foreach (Input::get('ClassRoomID-pp') as $value) {
+
+              $profprincipal = ProfPrincipal::create([
+                 'idTeacher' => $user->id,
+                 'classRoomID' => $value
+             ]);
+            }
+
+          }
+
+          return redirect('/home');
 
       }
     /**
@@ -126,7 +141,7 @@ class TeacherController extends Controller
         //     $addclass->save();
         // }
 
-        return redirect('/gestion-des-professeurs');
+        return redirect('/home');
 
     }
 
