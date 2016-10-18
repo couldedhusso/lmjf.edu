@@ -204,7 +204,7 @@
 
                  <table class="ui orange table">
 
-                  @if($evaluations->count() == 0)
+                  @if($allTeacher->count() == 0)
                     <tr class="unread">
                       <th>Id</th>
                       <th>Nom & prenoms</th>
