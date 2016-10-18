@@ -1,4 +1,3 @@
-{{-- @extends('templates.appTemplate') --}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,27 +67,48 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
+            {{-- @if (Route::has('login'))
+                <div class="links">
                     <a href="{{ url('/login') }}">Login</a>
                     <a href="{{ url('/register') }}">Register</a>
                 </div>
-            @endif
+            @endif --}}
 
             <div class="content">
                 <div class="title m-b-md">
                     LMJF DE BOUAKE
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Se Connecter à la platforme</a>
-                    {{-- <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a> --}}
-                </div>
+                @if(Auth::check())
+
+                  @if(Auth::user()->hasRole('Teacher'))
+                    <div class="links">
+                        <a href="https://laravel.com/docs">Se Connecter à la platforme</a>
+                        {{-- <a href="https://laracasts.com">Laracasts</a>
+                        <a href="https://laravel-news.com">News</a>
+                        <a href="https://forge.laravel.com">Forge</a>
+                        <a href="https://github.com/laravel/laravel">GitHub</a> --}}
+                    </div>
+                  @endif
+
+                  @if(Auth::user()->hasRole('Admin'))
+                    <div class="links">
+                        <a href="https://laravel.com/docs">Se Connecter à la platforme</a>
+                        {{-- <a href="https://laracasts.com">Laracasts</a>
+                        <a href="https://laravel-news.com">News</a>
+                        <a href="https://forge.laravel.com">Forge</a>
+                        <a href="https://github.com/laravel/laravel">GitHub</a> --}}
+                    </div>
+                  @endif
+                @else
+
+                  <div class="links">
+                      <a href="{{url('/login')}}">Se Connecter à la platforme</a>
+                  </div>
+                @endif
+
             </div>
-        </div>
+
     </body>
 </html>
 

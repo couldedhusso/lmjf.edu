@@ -31,25 +31,15 @@
                     <li><a href="{{ url('/login') }}">Se connecter</a></li>
                     {{-- <li><a href="{{ url('/register') }}">Register</a></li> --}}
                 @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->userFirstName .' '.Auth::user()->userLastName }} <span class="caret"></span>
-                        </a>
+                  <li><a href="#"><img class="ui avatar image" src="{{asset('img/users.png')}}">
+                      <span>{{ Auth::user()->userFirstName .' '.Auth::user()->userLastName }}</span></a>
+                  </li>
+                  <li><a href="{{ url('/auth/logout') }}" onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span> Se deconnecter</a></li>
+                           <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                               {{ csrf_field() }}
+                           </form>
 
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ url('/logout') }}"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    Se deconnecter
-                                </a>
-
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
                 @endif
             </ul>
         </div>
