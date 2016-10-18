@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
- @if(!Auth::user()->hasRole('Teacher'))
+ @if(Auth::user()->hasRole('Enseingnant'))
   <div class="row">
         {{-- <div class="col-md-4 pull-right">
                <div class="panel panel-default">

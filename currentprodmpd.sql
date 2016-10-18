@@ -36,6 +36,10 @@ CREATE TABLE `Absence` (
 -- Dumping data for table `Absence`
 --
 
+LOCK TABLES `Absence` WRITE;
+/*!40000 ALTER TABLE `Absence` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Absence` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `AverageGrade`
@@ -59,6 +63,12 @@ CREATE TABLE `AverageGrade` (
 --
 -- Dumping data for table `AverageGrade`
 --
+
+LOCK TABLES `AverageGrade` WRITE;
+/*!40000 ALTER TABLE `AverageGrade` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AverageGrade` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `Classroom`
 --
@@ -83,6 +93,12 @@ CREATE TABLE `Classroom` (
 -- Dumping data for table `Classroom`
 --
 
+LOCK TABLES `Classroom` WRITE;
+/*!40000 ALTER TABLE `Classroom` DISABLE KEYS */;
+INSERT INTO `Classroom` VALUES (1,NULL,NULL,NULL,'6ème1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(2,NULL,NULL,NULL,'6ème2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(3,NULL,NULL,NULL,'6ème3',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(4,NULL,NULL,NULL,'6ème4',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(5,NULL,NULL,NULL,'6ème5',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(6,NULL,NULL,NULL,'6ème6',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(7,NULL,NULL,NULL,'6ème7',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(8,NULL,NULL,NULL,'6ème8',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(9,NULL,NULL,NULL,'6ème9',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(10,NULL,NULL,NULL,'6ème10',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(11,NULL,NULL,NULL,'5ème1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(12,NULL,NULL,NULL,'5ème2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(13,NULL,NULL,NULL,'5ème3',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(14,NULL,NULL,NULL,'5ème4',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(15,NULL,NULL,NULL,'5ème5',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(16,NULL,NULL,NULL,'4ème1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(17,NULL,NULL,NULL,'4ème2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(18,NULL,NULL,NULL,'4ème3',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(19,NULL,NULL,NULL,'4ème4',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(20,NULL,NULL,NULL,'4ème5',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(21,NULL,NULL,NULL,'3ème1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(22,NULL,NULL,NULL,'3ème2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(23,NULL,NULL,NULL,'3ème3',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(24,NULL,NULL,NULL,'3ème4',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(25,NULL,NULL,NULL,'3ème5',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(26,NULL,'litteraire',NULL,'2ndA1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(27,NULL,'litteraire',NULL,'2ndA2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(28,NULL,'scientifique',NULL,'1èreA1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(29,NULL,'scientifique',NULL,'1èreA2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(30,NULL,'scientifique',NULL,'1èreC1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(31,NULL,'scientifique',NULL,'1èreC2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(32,NULL,'scientifique',NULL,'1èreD1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(33,NULL,'scientifique',NULL,'1èreD2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(34,NULL,'litteraire',NULL,'TleA1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(35,NULL,'litteraire',NULL,'TleA2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(36,NULL,'scientifique',NULL,'TleD1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(37,NULL,'scientifique',NULL,'TleD2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(38,NULL,'scientifique',NULL,'TleC1',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37'),(39,NULL,'scientifique',NULL,'TleC2',NULL,'2016-10-15 18:35:37','2016-10-15 18:35:37');
+/*!40000 ALTER TABLE `Classroom` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `Course`
 --
@@ -106,6 +122,12 @@ CREATE TABLE `Course` (
 -- Dumping data for table `Course`
 --
 
+LOCK TABLES `Course` WRITE;
+/*!40000 ALTER TABLE `Course` DISABLE KEYS */;
+INSERT INTO `Course` VALUES (1,1,'FRANÇAIS',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(2,1,'ANGLAIS',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(3,1,'HISTOIRE-GÉOGRAPHIE',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(4,1,'ALLEMAND',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(5,1,'ESPAGNOL',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(6,1,'PHILOSOPHIE',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(7,1,'MATHÉMATIQUES',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(8,1,'PHYSIQUE - CHIMIE',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(9,1,'SCIENCES DE LA VIE ET DE LA TERRE',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(10,1,'EDUCATION PHYSIQUE ET SPORTIVE',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37'),(11,1,'MUSIQUE',NULL,'1','2016-10-15 21:09:11','2016-10-15 21:09:11'),(12,1,'CONDUITE',NULL,'1','2016-10-15 21:09:11','2016-10-15 21:09:11'),(13,1,'Education des Droits de l\'Homme',NULL,'1','2016-10-15 21:07:37','2016-10-15 21:07:37');
+/*!40000 ALTER TABLE `Course` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `CourseChild`
 --
@@ -126,6 +148,13 @@ CREATE TABLE `CourseChild` (
 --
 -- Dumping data for table `CourseChild`
 --
+
+LOCK TABLES `CourseChild` WRITE;
+/*!40000 ALTER TABLE `CourseChild` DISABLE KEYS */;
+INSERT INTO `CourseChild` VALUES (1,1,'Expression écrite','2016-10-15 18:35:37','2016-10-15 18:35:37'),(2,1,'Expression orale','2016-10-15 18:35:37','2016-10-15 18:35:37'),(3,1,'Orthographe','2016-10-15 18:35:37','2016-10-15 18:35:37');
+/*!40000 ALTER TABLE `CourseChild` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `CourseSchedule`
 --
@@ -149,6 +178,11 @@ CREATE TABLE `CourseSchedule` (
 -- Dumping data for table `CourseSchedule`
 --
 
+LOCK TABLES `CourseSchedule` WRITE;
+/*!40000 ALTER TABLE `CourseSchedule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CourseSchedule` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `Cycle`
 --
@@ -171,6 +205,11 @@ CREATE TABLE `Cycle` (
 -- Dumping data for table `Cycle`
 --
 
+LOCK TABLES `Cycle` WRITE;
+/*!40000 ALTER TABLE `Cycle` DISABLE KEYS */;
+INSERT INTO `Cycle` VALUES (1,'1er Cycle','-','Premier cycle des lycées et collèges','2016-10-15 18:35:37','2016-10-15 18:35:37'),(2,'2nd Cycle','scientifique','Second cycle des lycées et collèges','2016-10-15 18:35:37','2016-10-15 18:35:37'),(3,'2nd Cycle','litteraire','Second cycle des lycées et collèges','2016-10-15 18:35:37','2016-10-15 18:35:37');
+/*!40000 ALTER TABLE `Cycle` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `Parent`
@@ -195,6 +234,12 @@ CREATE TABLE `Parent` (
 -- Dumping data for table `Parent`
 --
 
+LOCK TABLES `Parent` WRITE;
+/*!40000 ALTER TABLE `Parent` DISABLE KEYS */;
+INSERT INTO `Parent` VALUES (1,'AHOUTOU','MARK','lmjfb','123','2016-10-18 07:31:52','2016-10-18 07:31:52'),(2,'AHOUTOU','MARK','lmjfb','123','2016-10-18 07:33:48','2016-10-18 07:33:48'),(3,'AHOUTOU','MARK','lmjfb','123','2016-10-18 07:36:50','2016-10-18 07:36:50'),(4,'AHOUTOU','MARK','lmjfb','123','2016-10-18 07:38:11','2016-10-18 07:38:11'),(5,'AHOUTOU','MARK','lmjfb','123','2016-10-18 07:42:23','2016-10-18 07:42:23'),(6,'AHOUTOU','MARK','lmjfb','123','2016-10-18 07:43:49','2016-10-18 07:43:49');
+/*!40000 ALTER TABLE `Parent` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `ProfPrincipal`
 --
@@ -216,6 +261,12 @@ CREATE TABLE `ProfPrincipal` (
 -- Dumping data for table `ProfPrincipal`
 --
 
+LOCK TABLES `ProfPrincipal` WRITE;
+/*!40000 ALTER TABLE `ProfPrincipal` DISABLE KEYS */;
+INSERT INTO `ProfPrincipal` VALUES (1,16,9,'2016-10-18 08:38:24','2016-10-18 08:38:24');
+/*!40000 ALTER TABLE `ProfPrincipal` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `Retard`
 --
@@ -236,6 +287,11 @@ CREATE TABLE `Retard` (
 --
 -- Dumping data for table `Retard`
 --
+
+LOCK TABLES `Retard` WRITE;
+/*!40000 ALTER TABLE `Retard` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Retard` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `Semestre`
@@ -260,6 +316,11 @@ CREATE TABLE `Semestre` (
 -- Dumping data for table `Semestre`
 --
 
+LOCK TABLES `Semestre` WRITE;
+/*!40000 ALTER TABLE `Semestre` DISABLE KEYS */;
+INSERT INTO `Semestre` VALUES (1,'1er trimestre','2016-2017','-','-','2016-10-16 23:30:10','2016-10-16 23:30:10'),(2,'2e trimestre','2016-2017','-','-','2016-10-16 23:30:10','2016-10-16 23:30:10'),(3,'3e trimestre','2016-2017','-','-','2016-10-16 23:30:10','2016-10-16 23:30:10');
+/*!40000 ALTER TABLE `Semestre` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `Student`
@@ -294,6 +355,12 @@ CREATE TABLE `Student` (
 -- Dumping data for table `Student`
 --
 
+LOCK TABLES `Student` WRITE;
+/*!40000 ALTER TABLE `Student` DISABLE KEYS */;
+INSERT INTO `Student` VALUES ('1025',8,4,'Bo Mills','Rahsaan','2006-12-01','F','South Enid','Lenna Jaskolski','(534) 394-3192 x911','-','-','OUI',0,'2016-10-16 10:45:57','2016-10-16 10:45:57',''),('15169899C',10,6,'AHOUTOU',' AFFOUE ELIANE','3/16/2003','F','YABLASSOU','AHOUTOU MARK','123','-','-','OUI',0,'2016-10-18 07:43:49','2016-10-18 07:43:49','2016-2017'),('3232',8,8,'Oleta Beier','Shirley','1972-02-18','F','Juddland','Roel Parker','714-564-6478','-','-','OUI',0,'2016-10-16 10:45:57','2016-10-16 10:45:57',''),('4555',8,3,'Theresia Herzog','Minnie','1987-03-25','F','New Kanestad','Waino Mante','1-278-244-6095 x304','-','-','OUI',0,'2016-10-16 10:45:57','2016-10-16 10:45:57',''),('5758',8,9,'Reed Okuneva','Anahi','1977-08-30','F','East Sheldon','Larry Kihn III','862.250.1015 x6667','-','-','OUI',0,'2016-10-16 10:45:57','2016-10-16 10:45:57',''),('6503',8,6,'Prof. Obie Lueilwitz III','Amelie','1997-01-19','F','South Darianamouth','Prof. Jolie Davis II','373-585-2069 x77126','-','-','OUI',0,'2016-10-16 10:45:57','2016-10-16 10:45:57',''),('6548',8,7,'Vivienne Barton IV','Kiara','2000-08-05','F','Keiraside','Adrianna Oberbrunner','806-774-4033 x8021','-','-','OUI',0,'2016-10-16 10:45:56','2016-10-16 10:45:56',''),('8389',8,6,'Mrs. Leslie Boehm','Della','1970-12-01','F','Stacystad','Lola Jacobs','+1 (214) 863-3683','-','-','OUI',0,'2016-10-16 10:45:56','2016-10-16 10:45:56',''),('8582',8,7,'Dariana Rowe DVM','Angelita','1989-07-07','F','Port Ellie','Pearlie Stark','351-501-2071','-','-','OUI',0,'2016-10-16 10:45:56','2016-10-16 10:45:56',''),('9158',8,4,'Kaleb Nader MD','Edwina','2013-08-11','F','Marquardtmouth','Shannon D\'Amore','(402) 505-5748','-','-','OUI',0,'2016-10-16 10:45:56','2016-10-16 10:45:56',''),('9356',8,8,'Alexandre Tromp','Alize','2006-06-24','F','Wildermanfort','Dayne Hilpert','+17284160663','-','-','OUI',0,'2016-10-16 10:45:56','2016-10-16 10:45:56','');
+/*!40000 ALTER TABLE `Student` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `Teacher`
 --
@@ -317,6 +384,12 @@ CREATE TABLE `Teacher` (
 -- Dumping data for table `Teacher`
 --
 
+LOCK TABLES `Teacher` WRITE;
+/*!40000 ALTER TABLE `Teacher` DISABLE KEYS */;
+INSERT INTO `Teacher` VALUES (1,10,1,8,'2016-10-16 13:39:39','2016-10-16 13:39:39',0),(5,16,8,6,'2016-10-18 08:38:24','2016-10-18 08:38:24',1),(6,16,8,8,'2016-10-18 08:38:24','2016-10-18 08:38:24',1);
+/*!40000 ALTER TABLE `Teacher` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `Time_period`
 --
@@ -339,6 +412,10 @@ CREATE TABLE `Time_period` (
 -- Dumping data for table `Time_period`
 --
 
+LOCK TABLES `Time_period` WRITE;
+/*!40000 ALTER TABLE `Time_period` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Time_period` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `anneeScolaire`
@@ -358,6 +435,12 @@ CREATE TABLE `anneeScolaire` (
 --
 -- Dumping data for table `anneeScolaire`
 --
+
+LOCK TABLES `anneeScolaire` WRITE;
+/*!40000 ALTER TABLE `anneeScolaire` DISABLE KEYS */;
+INSERT INTO `anneeScolaire` VALUES ('2016-2017','2016-10-15 18:35:37','2016-10-15 18:35:37');
+/*!40000 ALTER TABLE `anneeScolaire` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `courseGrade`
@@ -381,6 +464,12 @@ CREATE TABLE `courseGrade` (
 --
 -- Dumping data for table `courseGrade`
 --
+
+LOCK TABLES `courseGrade` WRITE;
+/*!40000 ALTER TABLE `courseGrade` DISABLE KEYS */;
+INSERT INTO `courseGrade` VALUES (1025,1,19,'12','-','2016-10-17 00:58:10','2016-10-17 00:58:10'),(3232,1,19,'20','-','2016-10-17 00:58:10','2016-10-17 00:58:10'),(4555,1,19,'11','-','2016-10-17 00:58:10','2016-10-17 00:58:10'),(5758,1,19,'9','-','2016-10-17 00:58:10','2016-10-17 00:58:10'),(6503,1,19,'12','-','2016-10-17 00:58:10','2016-10-17 00:58:10'),(6548,1,19,'12','-','2016-10-17 00:58:10','2016-10-17 00:58:10'),(8389,1,19,'17','-','2016-10-17 00:58:10','2016-10-17 00:58:10'),(8582,1,19,'13','-','2016-10-17 00:58:10','2016-10-17 00:58:10'),(9158,1,19,'18','-','2016-10-17 00:58:10','2016-10-17 00:58:10'),(9356,1,19,'19','-','2016-10-17 00:58:10','2016-10-17 00:58:10');
+/*!40000 ALTER TABLE `courseGrade` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `courseTest`
@@ -408,6 +497,12 @@ CREATE TABLE `courseTest` (
 -- Dumping data for table `courseTest`
 --
 
+LOCK TABLES `courseTest` WRITE;
+/*!40000 ALTER TABLE `courseTest` DISABLE KEYS */;
+INSERT INTO `courseTest` VALUES (19,1,1,10,8,NULL,'Premier devoir de niveau','20','2016-10-16 18:33:29','2016-10-16 18:33:29');
+/*!40000 ALTER TABLE `courseTest` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `migrations`
 --
@@ -426,6 +521,12 @@ CREATE TABLE `migrations` (
 --
 -- Dumping data for table `migrations`
 --
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2016_10_16_011528_Roles',2),(4,'2016_10_16_012952_create_role_user_pivot_table',3);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `password_resets`
@@ -446,6 +547,11 @@ CREATE TABLE `password_resets` (
 --
 -- Dumping data for table `password_resets`
 --
+
+LOCK TABLES `password_resets` WRITE;
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `roles`
@@ -468,6 +574,12 @@ CREATE TABLE `roles` (
 -- Dumping data for table `roles`
 --
 
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'Teacher','2016-10-15 22:47:40','2016-10-15 22:47:40');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `roles_user`
 --
@@ -489,6 +601,13 @@ CREATE TABLE `roles_user` (
 --
 -- Dumping data for table `roles_user`
 --
+
+LOCK TABLES `roles_user` WRITE;
+/*!40000 ALTER TABLE `roles_user` DISABLE KEYS */;
+INSERT INTO `roles_user` VALUES (1,9),(1,10),(1,16);
+/*!40000 ALTER TABLE `roles_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `users`
 --
@@ -514,3 +633,20 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (9,'gjhghjj','hghjjhjvh','123','fdghg@lmjf.com','$2y$10$/0jTgBK7GdpacRr.R1GjLO0Ca5CV201RAzRTmIIr6UqqcU98hWFym',NULL,'2016-10-15 23:48:45','2016-10-15 23:48:45'),(10,'user','user','123','123@lmjf.com','$2y$10$7BorS1lXxT8IU1taqsUG5uICvoj8vw0CjAY6q3K.pUjgbDdl0p0wa','Z67ccwH0edgGuLxEP6Ti8cus7DdNhGbTrwn9snoQqEZICzQxz00Bj27YVi8g','2016-10-16 00:22:02','2016-10-18 08:08:40'),(16,'gjhghjj','hghjjhjvh','123','newuser67g@lmjf.com','$2y$10$Lkisofz.8u1RKzJxWvPc0uL2rQBrr1FhAWxtOaHcUgI2KPPktj7Ya',NULL,'2016-10-18 08:38:24','2016-10-18 08:38:24');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-10-18 14:48:47

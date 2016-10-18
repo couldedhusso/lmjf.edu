@@ -49,13 +49,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'userFirstName' => 'required|max:255',
-            'userLastName' => 'required|max:255',
-            'userContact' => 'required|max:255',
-            'userLogin' => 'required|email|max:255|unique:users',
-            'userPassword' => 'required|min:6|confirmed',
-        ]);
+        // Validator::make($data, [
+        //     // // 'userFirstName' => 'max:255',
+        //     // // 'userLastName' => 'max:255',
+        //     // 'userLogin' => 'required|email|max:255|unique:users',
+        //     // 'userPassword' => 'required|min:6|confirmed',
+        // ])
+          return True ;
     }
 
     /**
@@ -74,6 +74,10 @@ class RegisterController extends Controller
             'userLogin' => $data['userLogin'],
             'userPassword' => bcrypt($data['userPassword']),
         ]);
+
+        // grant Enseingnant role to user
+        $user->roles()->attach($data['userRole']);
+
 
         return redirect('/');
     }

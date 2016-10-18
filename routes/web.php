@@ -285,49 +285,48 @@ Route::get('/home', 'HomeController@index');
 
 ///url for dummies datas
 
-Route::get('dumiesStudents', function(){
-
-      // it_creates_at_least_hundred_fake_users
-
-      // $users = factory(App\User::class, mt_rand(100, 1000))->create();
-      // $user_count = count($users) >= 100;
-
-
-    $students = [];
-    $faker = Faker\Factory::create();
-
-    for ($i = 0; $i <  5; $i++) {
-        // $students[] = App\Student::create([
-        //     'studentMatricule' => $faker->randomNumber($nbDigits = 4),
-        //     'studentParentID' => $faker->randomDigit,
-        //     'responsableStudent' => $faker->name,
-        //     'contactresponsableStudent' => $faker->phoneNumber,
-        //     'classRoomID' => 8,
-        //     'studentName' => $faker->name,
-        //     'studentLastName' => $faker->firstNameFemale,
-        //     'studentBirthdate' =>$faker->date($format = 'Y-m-d', $max = 'now'),
-        //     'studentSexe' => 'F',
-        //     'studentBirthPlace' => $faker->city,
-        //     'studentRegime' => '-',
-        //     'studentInterne' => '-',
-        //     'studentAffecte' => 'OUI',
-        //     'studentRedoublant' => '0'
-        // ]);
-
-
-        $teacher[] = App\Teacher::create([
-            'ClassRoomName' => Auth::user()->id,
-            'CourseID' => 1,
-            'classRoomID' => $faker->randomDigit
-        ]);
-
-      }
-
-      // $teacher[] = App\Teacher::create([
-      //     'idTeacher' => Auth::user()->id,
-      //     'CourseID' => 1,
-      //     'classRoomID' => 8
-      // ]);
-
-
-});
+// Route::get('dumiesStudents', function(){
+//
+//       // it_creates_at_least_hundred_fake_users
+//
+//       // $users = factory(App\User::class, mt_rand(100, 1000))->create();
+//       // $user_count = count($users) >= 100;
+//
+//     $students = [];
+//     $faker = Faker\Factory::create();
+//
+//     for ($i = 0; $i <  5; $i++) {
+//         // $students[] = App\Student::create([
+//         //     'studentMatricule' => $faker->randomNumber($nbDigits = 4),
+//         //     'studentParentID' => $faker->randomDigit,
+//         //     'responsableStudent' => $faker->name,
+//         //     'contactresponsableStudent' => $faker->phoneNumber,
+//         //     'classRoomID' => 8,
+//         //     'studentName' => $faker->name,
+//         //     'studentLastName' => $faker->firstNameFemale,
+//         //     'studentBirthdate' =>$faker->date($format = 'Y-m-d', $max = 'now'),
+//         //     'studentSexe' => 'F',
+//         //     'studentBirthPlace' => $faker->city,
+//         //     'studentRegime' => '-',
+//         //     'studentInterne' => '-',
+//         //     'studentAffecte' => 'OUI',
+//         //     'studentRedoublant' => '0'
+//         // ]);
+//
+//
+//         $teacher[] = App\Teacher::create([
+//             'ClassRoomName' => Auth::user()->id,
+//             'CourseID' => 1,
+//             'classRoomID' => $faker->randomDigit
+//         ]);
+//
+//       }
+//
+//       // $teacher[] = App\Teacher::create([
+//       //     'idTeacher' => Auth::user()->id,
+//       //     'CourseID' => 1,
+//       //     'classRoomID' => 8
+//       // ]);
+//
+//
+// });
