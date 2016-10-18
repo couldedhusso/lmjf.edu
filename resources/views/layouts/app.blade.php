@@ -20,6 +20,14 @@
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
+    <!-- creative-tim CSS     -->
+
+    <!-- Animation library for notifications   -->
+    <link href="{{asset('vendors/creatietim/css/animate.min.css')}}" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="{{asset('vendors/creatietim/css/light-bootstrap-dashboard.css')}}" rel="stylesheet"/>
+    
     <!-- Semantic-ui core CSS     -->
     <link href="{{asset('assets/semantic/semantic.min.css')}}" rel="stylesheet" />
 

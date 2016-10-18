@@ -80,26 +80,9 @@
                 </div>
 
                 @if(Auth::check())
-
-                  @if(Auth::user()->hasRole('Teacher'))
                     <div class="links">
-                        <a href="https://laravel.com/docs">Se Connecter à la platforme</a>
-                        {{-- <a href="https://laracasts.com">Laracasts</a>
-                        <a href="https://laravel-news.com">News</a>
-                        <a href="https://forge.laravel.com">Forge</a>
-                        <a href="https://github.com/laravel/laravel">GitHub</a> --}}
+                        <a href="{{url('/home')}}">Aller à l acceuil</a>
                     </div>
-                  @endif
-
-                  @if(Auth::user()->hasRole('Admin'))
-                    <div class="links">
-                        <a href="https://laravel.com/docs">Se Connecter à la platforme</a>
-                        {{-- <a href="https://laracasts.com">Laracasts</a>
-                        <a href="https://laravel-news.com">News</a>
-                        <a href="https://forge.laravel.com">Forge</a>
-                        <a href="https://github.com/laravel/laravel">GitHub</a> --}}
-                    </div>
-                  @endif
                 @else
 
                   <div class="links">

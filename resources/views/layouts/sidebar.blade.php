@@ -1,7 +1,7 @@
 <aside>
     <ul class="sidebar-navigation">
     <style>
-    ol {
+    ol, ul {
       list-style-type: none; /* СТИЛЬ НУМЕРОВАННОГО СПИСКА */
     }
     </style>

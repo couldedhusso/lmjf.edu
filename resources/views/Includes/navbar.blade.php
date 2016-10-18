@@ -11,11 +11,19 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{-- {{ config('app.name', 'LMJF') }} --}}
+            @if(Auth::check())
+              <a class="navbar-brand" href="{{ url('/home') }}">
+                  {{-- {{ config('app.name', 'LMJF') }} --}}
 
-                LMJF | Espace Numérique de Travail
-            </a>
+                  LMJF | Espace Numérique de Travail
+              </a>
+            @else
+              <a class="navbar-brand" href="{{ url('/') }}">
+                  {{-- {{ config('app.name', 'LMJF') }} --}}
+
+                  LMJF | Espace Numérique de Travail
+              </a>
+            @endif
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">

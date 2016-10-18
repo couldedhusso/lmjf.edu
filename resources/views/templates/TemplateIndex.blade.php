@@ -117,7 +117,7 @@
         <!-- Breadcrumb -->
         <div class="container">
             <ol class="breadcrumb" style="padding:0 !important; background-color:inherit !important;">
-                <li><a href="index.html">Acceuil</a></li>
+                <li><a href="{{url('/home')}}">Acceuil</a></li>
                 <li><a href="#">Espace Administrateur</a></li>
             </ol>
         </div>
@@ -130,7 +130,7 @@
     </div>
   </div>
     <!-- end Page Content -->
-    <!-- Page Footer -->
+    {{-- <!-- Page Footer -->
     <footer id="page-footer">
         <div class="inner">
             <aside id="footer-main">
@@ -164,7 +164,7 @@
             </aside>
         </div><!-- /.inner -->
     </footer>
-    <!-- end Page Footer -->
+    <!-- end Page Footer --> --}}
 </div>
 
 <script type="text/javascript" src="assets/js/jquery-2.1.0.min.js"></script>

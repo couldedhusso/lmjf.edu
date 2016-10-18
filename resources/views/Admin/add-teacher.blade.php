@@ -1,14 +1,14 @@
 @extends('templates.TemplateIndex')
 
 @section('section-content')
-  <div class="col-md-3 col-sm-2">
+  {{-- <div class="col-md-3 col-sm-2">
       <section id="sidebar">
           <header><h3>Espace administrateur</h3></header>
           @include('layouts.sidebar-admin')
       </section><!-- /#sidebar -->
-  </div><!-- /.col-md-3 -->
+  </div><!-- /.col-md-3 --> --}}
   <!-- My Properties -->
-<form class="ui form" action="/addTeacher" method="POST" enctype="multipart/form-data">
+<form class="ui form" style="margin-left:auto;margin-right:auto" action="/addTeacher" method="POST" enctype="multipart/form-data">
 <section id="my-properties">
   <div class="my-properties">
     {{-- <div class="col-md-2 col-sm-10 pull-right">

@@ -1,12 +1,12 @@
 @extends('templates.TemplateIndex')
 
 @section('section-content')
-  <div class="col-md-3 col-sm-2">
+  {{-- <div class="col-md-3 col-sm-2">
       <section id="sidebar">
           <header><h3>Espace administrateur</h3></header>
           @include('layouts.sidebar-admin')
       </section><!-- /#sidebar -->
-  </div><!-- /.col-md-3 -->
+  </div><!-- /.col-md-3 --> --}}
   <!-- My Properties -->
 <div class="col-md-9 col-sm-10">
   <div class="ui form">

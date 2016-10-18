@@ -1,20 +1,20 @@
 @extends('templates.TemplateDashboard')
 
 @section('section-content')
-  <!-- sidebar -->
+  {{-- <!-- sidebar -->
   <div class="col-md-3 col-sm-2">
     <section id="sidebar">
        <header><h3>Espace professeur</h3></header>
        @include('layouts.sidebar')
     </section><!-- /#sidebar -->
- </div><!-- /.col-md-3 -->
+ </div><!-- /.col-md-3 --> --}}
 
- <div class="col-md-2 col-sm-2">
+ <div class="col-md-3 col-sm-3">
      <div class="full-height-scroll">
          <ul class="list-group elements-list">
                @foreach($classrooms as $classroom)
                   <li class="list-group-item">
-                       <a data-toggle="tab" href="#{{$classroom->classRoomID}}">
+                       <a style="width:100%" data-toggle="tab" href="#{{$classroom->classRoomID}}">
                            <small class="pull-right text-muted"> {{$classroom->classRoomID}}</small>
                            <strong>{{$classroom->ClassRoomName}}</strong>
                        </a>
@@ -37,7 +37,7 @@
                                      <input type="hidden" name="classRoomID" value="{{$classroom->classRoomID}}">
                                      {{ csrf_field() }}
                                      <div class="pull-right">
-                                           <input class="ui primary button right floated" type="submit" name="name" value="Poster le formulaire">
+                                           <input class="ui primaary button right floated" type="submit" name="name" value="Poster le formulaire">
                                      </div>
                                      <div class="form-group">
                                        <label for="pwd">Periode : {{$semestre->semestreDescription}}</label>
@@ -56,7 +56,16 @@
                                      </div>
                                      <br><br>
 
-                                     <table class="table table-hover table-mail">
+                                     <table class="ui orange table">
+
+                                     {{-- <table class="table table-hover table-mail"> --}}
+                                       <thead>
+                                          <tr>
+                                            <th>Matricule</th>
+                                            <th>Nom & prenoms</th>
+                                            <th>Note</th>
+                                          </tr>
+                                       </thead>
                                        <tbody>
                                            @foreach($studentByclassroom as $classe)
                                            {{-- @foreach($classe->Student as $stud) --}}

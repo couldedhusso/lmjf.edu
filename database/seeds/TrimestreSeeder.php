@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SemestreSeeder extends Seeder
+class TrimestreSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,21 +18,21 @@ class SemestreSeeder extends Seeder
     public function run()
     {
       DB::table('Semestre')->insert([
-        'semestreDescription' => '1er semestre',
+        'semestreDescription' => '1er trimestre',
         'academicYear' => '2016-2017',
         'startDate' => '-',
         'endDate' => '-'
       ]);
 
       DB::table('Semestre')->insert([
-        'semestreDescription' => '2e semestre',
+        'semestreDescription' => '2e trimestre',
         'academicYear' => '2016-2017',
         'startDate' => '-',
         'endDate' => '-'
       ]);
 
       DB::table('Semestre')->insert([
-        'semestreDescription' => '3e semestre',
+        'semestreDescription' => '3e trimestre',
         'academicYear' => '2016-2017',
         'startDate' => '-',
         'endDate' => '-'

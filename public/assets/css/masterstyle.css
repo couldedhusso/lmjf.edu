@@ -310,3 +310,16 @@ label, .ui.form .field > label {
 .mdl-button--orange {
     color: rgb(232, 162, 11);
 }
+
+
+list-group-item.active !important, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    /*color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;*/
+
+    background-color: #f2711c;
+    color: #fff;
+    text-shadow: none;
+    background-image: none;
+}

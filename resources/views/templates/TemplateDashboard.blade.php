@@ -20,6 +20,8 @@
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
+    <link rel="stylesheet" href="{{asset('assets/css/masterstyle.css')}}" type="text/css">
+
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
@@ -123,7 +125,7 @@
         <!-- Breadcrumb -->
         <div class="container">
             <ol class="breadcrumb" style="padding:0 !important; background-color:inherit !important;">
-                <li><a href="{{url('notes-des-evalautions')}}">Acceuil</a></li>
+                <li><a href="{{url('/home')}}">Acceuil</a></li>
                 <li><a href="#">Espace professeur</a></li>
             </ol>
         </div>
@@ -137,7 +139,7 @@
   </div>
     <!-- end Page Content -->
     <!-- Page Footer -->
-    <footer id="page-footer">
+    {{-- <footer id="page-footer" style="background-color:inherit">
         <div class="inner">
             <aside id="footer-main">
                 <div class="container">
@@ -170,7 +172,7 @@
             </aside>
         </div><!-- /.inner -->
     </footer>
-    <!-- end Page Footer -->
+    <!-- end Page Footer --> --}}
 </div>
 
 <script type="text/javascript" src="assets/js/jquery-2.1.0.min.js"></script>
