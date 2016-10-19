@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
- @if(Auth::user()->hasRole('Enseingnant'))
+ @if(Auth::user()->hasRole('Teacher'))
   <div class="row">
         {{-- <div class="col-md-4 pull-right">
                <div class="panel panel-default">
@@ -113,6 +113,18 @@
               <span class="pull-left" style="font-size:20px;">Mes evaluations</span>
               <div class="btn-group pull-right">
                    <button class="btn btn-white-grey btn-sm" data-toggle="modal" data-target="#addeval" style="margin-right:5px" title="Nouvelle évaluation"><i class="fa fa-flask" aria-hidden="true"></i></button>
+
+
+                   <button class="btn btn-white-grey btn-sm" onclick="event.preventDefault();
+                            document.getElementById('search-form').submit();"><i class="fa fa-flask" aria-hidden="true"></i></button>
+
+
+
+
+                            <form id="search-form" action="{{ url('/get-search-form') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="search-key" value="students">
+                            </form>
                    <a href="{{url('notes-des-evalautions')}}" class="btn btn-white-grey btn-sm" title="Saisir les notes"><i class="fa fa-plus"></i></a>
                </div>
 
@@ -235,5 +247,13 @@
        </div>
 
        @endif
+
+       {{-- <a href="" target="_blank" id="view-source" class=" floating-action-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" data-upgraded=",MaterialButton,MaterialRipple">
+         View Source
+         <span class="mdl-button__ripple-container">
+           <span class="mdl-ripple is-animating" style="width: 255.952px; height: 255.952px; transform: translate(-50%, -50%) translate(70px, 17px);">
+           </span>
+         </span>
+       </a> --}}
 
 @endsection

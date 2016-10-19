@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="assets/css/jquery.slider.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
 	  <link rel="stylesheet" href="assets/css/fileinput.min.css" type="text/css">
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
@@ -30,6 +31,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+
 
     <!-- Scripts -->
     <script>
@@ -47,5 +49,6 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </body>
 </html>

@@ -101,7 +101,13 @@ CREATE TABLE IF NOT EXISTS `lmjfdb`.`Classroom` (
     PRIMARY KEY (`classRoomID`)
 )  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8;
 
-
+CREATE TABLE IF NOT EXISTS `lmjfdb`.`Enrollment` (
+    `academicYear` VARCHAR(45) NOT NULL,
+    `classRoomID` INT(11) NOT NULL,
+    `created_at` TIMESTAMP NOT NULL,
+    `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`academicYear` , `classRoomID`)
+)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8;
 
 CREATE TABLE IF NOT EXISTS `lmjfdb`.`Student` (
     `studentMatricule` VARCHAR(45) NOT NULL,

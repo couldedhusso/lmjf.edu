@@ -268,7 +268,26 @@ Route::group(['middleware' => 'auth'], function () {
       // return view('Admin.student-registration', compact('studentsCollection'));
   });
 
+
+
+
   // mes post
+  Route::post('update_teacher_data', function(){
+      $id = Input::get('teacher_id');
+      $user = DB::table('users')->where('id', $id);
+
+  });
+
+  // mes Delete route
+  Route::post('delete_teacher', 'HomeController@delete_teacher');
+  Route::post('update_teacher_info', 'HomeController@get_teacher_by_id');
+  Route::post('get-student-by-id', 'HomeController@get_student_by_id');
+
+
+  // ===== faire une recherche
+  Route::post('get-search-form', 'HomeController@search_engine');
+  Route::post('get-search-result', 'HomeController@search_results');
+
   Route::post('addTeacher', 'TeacherController@create');
   Route::post('studReg', 'StudentController@store');
   Route::post('newEvaluation', 'EvaluationsController@store');
@@ -292,26 +311,28 @@ Route::get('/home', 'HomeController@index');
 //       // $users = factory(App\User::class, mt_rand(100, 1000))->create();
 //       // $user_count = count($users) >= 100;
 //
-//     $students = [];
+//     $courses =
+//
+//     $teacher = [];
 //     $faker = Faker\Factory::create();
 //
 //     for ($i = 0; $i <  5; $i++) {
-//         // $students[] = App\Student::create([
-//         //     'studentMatricule' => $faker->randomNumber($nbDigits = 4),
-//         //     'studentParentID' => $faker->randomDigit,
-//         //     'responsableStudent' => $faker->name,
-//         //     'contactresponsableStudent' => $faker->phoneNumber,
-//         //     'classRoomID' => 8,
-//         //     'studentName' => $faker->name,
-//         //     'studentLastName' => $faker->firstNameFemale,
-//         //     'studentBirthdate' =>$faker->date($format = 'Y-m-d', $max = 'now'),
-//         //     'studentSexe' => 'F',
-//         //     'studentBirthPlace' => $faker->city,
-//         //     'studentRegime' => '-',
-//         //     'studentInterne' => '-',
-//         //     'studentAffecte' => 'OUI',
-//         //     'studentRedoublant' => '0'
-//         // ]);
+//         $users[] = App\User::create([
+//             'email' => $faker->randomNumber($nbDigits = 4),
+//             'password' => bcrypt('lmjf'),
+//             'userFirstName' => $faker->firstNameFemale,
+//             'userLastName' => $faker->name,
+//             'userContact' => $faker->email,
+//
+//             'studentLastName' => $faker->firstNameFemale,
+//             'studentBirthdate' =>$faker->date($format = 'Y-m-d', $max = 'now'),
+//             'studentSexe' => 'F',
+//             'studentBirthPlace' => $faker->city,
+//             'studentRegime' => '-',
+//             'studentInterne' => '-',
+//             'studentAffecte' => 'OUI',
+//             'studentRedoublant' => '0'
+//         ]);
 //
 //
 //         $teacher[] = App\Teacher::create([

@@ -14,7 +14,7 @@ class Enrollement extends Model
      * @var array
      */
     protected $fillable = [
-       'classRoomID','DateEnrollement', 'StudentID', 'AcademicYear'
+       'classRoomID','DateEnrollement', 'StudentID', 'academicYear'
     ];
 
     public function student()
