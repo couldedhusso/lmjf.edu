@@ -61,7 +61,6 @@ class EvaluationsController extends Controller
 
       $reqData = Input::except('_token', 'name');
 
-
       $studentByclassroom = DB::table('Classroom')
                           ->join('Student', 'Classroom.classRoomID', '='
                           ,'Student.classRoomID')

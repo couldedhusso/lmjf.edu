@@ -81,14 +81,14 @@
     <div class="container">
       <div class="row">
 
-        <div class="floating-action-button">
-            <div class="ui vertical orange button " tabindex="0" style="font-size:inherit">
-                <div class="hidden content">Shop</div>
+        {{-- <div class="floating-action-button" data-toggle="modal" data-target="#boxSearch">
+            <div  class="ui vertical orange button " tabindex="0" style="font-size:inherit">
                 <div class="visible content">
                   <i class="search icon"></i>
                 </div>
             </div>
-        </div>
+        </div> --}}
+
 
 
         {{-- <a href="" target="_blank" id="view-source" class="  mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" data-upgraded=",MaterialButton,MaterialRipple">
@@ -106,6 +106,7 @@
 
     <!-- Semantic-ui core js     -->
     <script src="{{asset('assets/semantic/semantic.min.js')}}"></script>
+
     <script type="text/javascript">
         $('select.dropdown').dropdown();
         $('.ui.checkbox').checkbox();
@@ -115,6 +116,6 @@
 
     <!-- Scripts -->
     {{-- <script src="/js/app.js"></script> --}}
-        <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+        {{-- <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script> --}}
 </body>
 </html>

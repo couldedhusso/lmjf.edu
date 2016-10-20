@@ -20,13 +20,6 @@
         <div class="col-md-8 col-sm-8">
         {{-- <div class="col-md-3"> --}}
 
-        <h2 class="ui big header">
-          {{-- <img class="ui image" src="http://semantic-ui.com/images/icons/Find.png">
-          <div class="content"> --}}
-            Learn More
-          {{-- </div> --}}
-        </h2>
-
         <table class="ui orange table">
 
          @if($results_search->count() == 0)
@@ -37,6 +30,13 @@
            </tr> --}}
 
          @else
+
+           <h2 class="ui big header">
+             {{-- <img class="ui image" src="http://semantic-ui.com/images/icons/Find.png">
+             <div class="content"> --}}
+               Resultat de la recherche
+             {{-- </div> --}}
+           </h2>
           <thead>
              <tr>
                <th>Id</th>

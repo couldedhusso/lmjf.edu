@@ -64,20 +64,6 @@
                        {{$course->courseName}}
                      </option>
                  @endforeach
-                 {{-- <option value="AF">SCIENCES DE LA VIE ET DE LA TERRE</option>
-                 <option value="AX">MATHÉMATIQUES</option>
-                 <option value="AL">EDUCATION PHYSIQUE ET SPORTIVE</option>
-                 <option value="DZ">ANGLAIS</option>
-                 <option value="AS">PHYSIQUE - CHIMIE</option>
-                 <option value="AS">FRANÇAIS</option>
-                 <option value="AS">HISTOIRE-GÉOGRAPHIE</option>
-
-                 <option value="AS">PHILOSOPHIE</option>
-                 <option value="AS">Education des Droits de l'Homme</option>
-                 <option value="AS">ESPAGNOL</option>
-                 <option value="AG">ALLEMAND</option>
-                 <option value="AG">MUSIQUE</option>
-                 <option value="AG">CONDUITE</option> --}}
                 </select>
              </div>
 

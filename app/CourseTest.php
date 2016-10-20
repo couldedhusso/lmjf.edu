@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class CoursTest extends Model
+class CourseTest extends Model
 {
 
     /**

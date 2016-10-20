@@ -268,7 +268,7 @@ Route::group(['middleware' => 'auth'], function () {
       // return view('Admin.student-registration', compact('studentsCollection'));
   });
 
-
+  Route::get('entrer-des-notes', 'HomeController@saisie_note');
 
 
   // mes post
@@ -287,6 +287,8 @@ Route::group(['middleware' => 'auth'], function () {
   // ===== faire une recherche
   Route::post('get-search-form', 'HomeController@search_engine');
   Route::post('get-search-result', 'HomeController@search_results');
+
+  Route::post('gradeStudent', 'HomeController@gradeStudent');
 
   Route::post('addTeacher', 'TeacherController@create');
   Route::post('studReg', 'StudentController@store');

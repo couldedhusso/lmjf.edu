@@ -47,6 +47,7 @@ class StudentController extends Controller
         //$avatar = Input::get()
         $reqdata = Input::get('studentDatas');
         $studresp =  Input::get('studentRespoDatas');
+
       //  dd($reqdata['anneeScolaire']);
 
         $dParents =[

@@ -40,23 +40,23 @@
                                            <input class="ui primaary button right floated" type="submit" name="name" value="Poster le formulaire">
                                      </div>
                                      <div class="form-group">
-                                       <label for="pwd">Periode : {{$semestre->semestreDescription}}</label>
+                                        <label for="pwd">Periode : {{$semestre->semestreDescription}}</label>
 
                                         <input type="hidden" name="semestre" value="{{$semestre->semestreID}}">
-                                       <input type="hidden" class="form-control" id="pwd">
-                                     </div> &nbsp;&nbsp;
-                                     <div class="form-group ">
-                                          <select name="testID">
-                                            @foreach($evaluations as $value)
-                                              <option value="{{$value->CoursetestID}}">
-                                                {{$value->testDescription}}
-                                              </option>
-                                            @endforeach
-                                         </select>
-                                     </div>
-                                     <br><br>
+                                        <input type="hidden" class="form-control" id="pwd">
 
-                                     <table class="ui orange table">
+                                     </div>
+
+                                     <div class="form-group">
+                                        <label for="pwd" class="pull-left">Enseingnant : {{$teacher->userFirstName.' '.$teacher->userLastName}}</label>
+
+                                        <input type="hidden" class="form-control" id="pwd">
+                                        <input type="hidden" name="testID" value="{{$courseTest->CoursetestID}}">
+
+                                     </div>
+
+                                     &nbsp;&nbsp;
+                                     <table class="ui table">
 
                                      {{-- <table class="table table-hover table-mail"> --}}
                                        <thead>

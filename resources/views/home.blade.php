@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
- @if(Auth::user()->hasRole('Teacher'))
+ @if(!Auth::user()->hasRole('Teacher'))
   <div class="row">
         {{-- <div class="col-md-4 pull-right">
                <div class="panel panel-default">
@@ -117,9 +117,6 @@
 
                    <button class="btn btn-white-grey btn-sm" onclick="event.preventDefault();
                             document.getElementById('search-form').submit();"><i class="fa fa-flask" aria-hidden="true"></i></button>
-
-
-
 
                             <form id="search-form" action="{{ url('/get-search-form') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
@@ -244,16 +241,76 @@
                 </table>
 
                </div>
+
+               <div class="col-md-4 pull-right">
+                 <div>
+                     <span class="pull-left" style="font-size:20px;">Evaluations</span>
+                     <div class="btn-group pull-right">
+                          {{-- <button class="btn btn-white-grey btn-sm" data-toggle="modal" data-target="#addeval" style="margin-right:5px" title="Nouvelle évaluation"><i class="fa fa-flask" aria-hidden="true"></i></button> --}}
+                          <a href="{{url('/entrer-des-notes')}}" class="btn btn-white-grey btn-sm" title="Saisir les notes"><i class="fa fa-plus"></i></a>
+                    </div>
+                 </div>
+                 <br>
+
+                 <table class="ui orange table">
+                   <tr class="unread">
+                     {{-- <th>Id</th>
+                     <th>Nom & prenoms</th>
+                     <th>Discipline</th> --}}
+                   </tr>
+
+                  {{-- @if($allTeacher->count() == 0)
+                    <tr class="unread">
+                      <th>Id</th>
+                      <th>Nom & prenoms</th>
+                      <th>Discipline</th>
+                    </tr>
+
+                  @else
+                   <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Nom & prenoms</th>
+                        <th>Discipline</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                     @foreach($allTeacher as $teacher)
+                       <tr class="unread">
+                           <td class="">{{$teacher->id}}</td>
+                           <td class="">{{$teacher->userFirstName .' '.$teacher->userLastName}}</td>
+                           <td >{{$teacher->courseName}}</td>
+                         </tr>
+                     @endforeach
+                   </tbody>
+                  @endif --}}
+                </table>
+
+                 </div>
        </div>
 
        @endif
 
-       {{-- <a href="" target="_blank" id="view-source" class=" floating-action-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" data-upgraded=",MaterialButton,MaterialRipple">
-         View Source
-         <span class="mdl-button__ripple-container">
-           <span class="mdl-ripple is-animating" style="width: 255.952px; height: 255.952px; transform: translate(-50%, -50%) translate(70px, 17px);">
-           </span>
-         </span>
-       </a> --}}
+
+       <form id="search-stud" action="{{ url('/get-search-form') }}" method="POST" style="display: none;">
+       {{ csrf_field() }}
+       <input type="hidden" name="search-key" value="Student">
+       </form>
+
+       <form id="search-teacher" action="{{ url('/get-search-form') }}" method="POST" style="display: none;">
+       {{ csrf_field() }}
+       <input type="hidden" name="search-key" value="Teacher">
+       </form>
+
+       <div class="btn-group pull-right floating-action-button" style="boder:1px solid">
+            <button  onclick="event.preventDefault();
+                     document.getElementById('search-stud').submit()" class="btn btn-white-grey btn-sm"  style="margin-right:5px" title="Recherche dans la base des élèves"><i class="fa fa-search" aria-hidden="true"></i></button>
+
+
+            <button onclick="event.preventDefault();
+                     document.getElementById('search-teacher').submit()" class="btn btn-white-grey btn-sm" title="Recherche dans la base des professeurs"><i class="fa fa-search"></i></button>
+       </div>
+     </div>
+
 
 @endsection
