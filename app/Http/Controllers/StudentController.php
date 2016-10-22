@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 class StudentController extends Controller
 {
 
-    // TODO : le revoir la logiqque de compte pr les parents d eleve
+    // TODO : le revoir la logique de compte pr les parents d eleve
     // /**
     //  * Display a listing of the resource.
     //  *
@@ -59,6 +59,9 @@ class StudentController extends Controller
 
         // create parent student
         $studentparent = Parents::create($dParents);
+        if ($reqdata['doublant'] == " ") {
+           $reqdata['doublant'] = 0;
+        }
 
       //  $studentparent = Parent::create([$studresp]);
 
