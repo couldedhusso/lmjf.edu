@@ -59,9 +59,7 @@ class StudentController extends Controller
 
         // create parent student
         $studentparent = Parents::create($dParents);
-        if ($reqdata['doublant'] == " ") {
-           $reqdata['doublant'] = 0;
-        }
+    
 
       //  $studentparent = Parent::create([$studresp]);
 
