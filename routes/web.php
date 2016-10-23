@@ -278,6 +278,11 @@ Route::group(['middleware' => 'auth'], function () {
 
   });
 
+  Route::get('update_teacher_info/{id}', 'HomeController@get_teacher_by_id');
+
+ // Route::get('update_teacher_info/{id}', array('as' => 'update_teacher_info',
+ //            'uses' => 'HomeController@get_teacher_by_id'));
+
   // mes Delete route
   Route::post('delete_teacher', 'HomeController@delete_teacher');
   Route::post('update_teacher_info', 'HomeController@get_teacher_by_id');
@@ -289,6 +294,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post('get-search-result', 'HomeController@search_results');
 
   Route::post('gradeStudent', 'HomeController@gradeStudent');
+  Route::post('teacherUpdate', 'HomeController@teacherUpdate');
 
   Route::post('addTeacher', 'TeacherController@create');
   Route::post('studReg', 'StudentController@store');

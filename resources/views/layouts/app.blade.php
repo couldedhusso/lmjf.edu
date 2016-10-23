@@ -13,10 +13,11 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="https://design.google.com/css/site.css" type="text/css">
     <link rel="stylesheet" href="assets/css/jquery.slider.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+
+
 
     <link rel="stylesheet" href="assets/css/fileinput.min.css" type="text/css">
 
@@ -34,6 +35,7 @@
     <link href="{{asset('assets/semantic/semantic.min.css')}}" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
+      <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="//cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
@@ -42,6 +44,12 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <style media="screen">
+
+    .content-wrapper{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .ui.form, ui.button, .ui.buttons .button, .header  {
         font-size:inherit;
       }
@@ -55,6 +63,64 @@
           bottom: 40px;
           right: 40px;
          }
+
+
+        .mdl-tabs .mdl-tabs__panel .is-active{
+          border-bottom: 2px soliid rgba(231, 108, 17, 0.9);
+        }
+
+        .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+            color: rgba(231, 108, 17, 0.9);
+            border-bottom: 2px soliid rgba(231, 108, 17, 0.9);
+        }
+
+        .mdl-tabs__tab .mdl-tabs__ripple-container .mdl-ripple {
+            background: rgba(231, 108, 17, 0.9);
+        }
+
+        .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+          color: rgba(231, 108, 17, 0.9);
+        }
+
+    .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+        height: 2px;
+        width: 100%;
+        display: block;
+        content: " ";
+        bottom: 0px;
+        left: 0px;
+        position: absolute;
+        background: rgba(231, 108, 17, 0.9);
+        -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+                animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+        transition: all 1s cubic-bezier(0.4, 0, 1, 1);
+      }
+
+        .mdl-tabs__tab-bar {
+            display: inherit;
+            /*/display: -ms-flexbox;*/
+            display: inline-block;;
+            width: 100%;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .mdl-tabs__tab {
+            display: inline-block;
+            padding: 20px 12px 21px;
+            text-decoration: none;
+            text-transform:capitalize;;
+            font-size: 16px;
+            line-height: 1;
+            font-weight: 700;
+            transition: border-bottom-color .1s ease-out;
+            user-select: none;
+            float: left;
+        }
+
+        .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:active,
+        .mdl-tabs__tab .header:hover,
+        .mdl-tabs.is-upgraded  .mdl-tabs__tab .header:active{
+            text-decoration: none;
+        }
 
       /*ui.button, .ui.buttons .button, .ui.buttons .or {
           font-size: 16px;
@@ -104,10 +170,14 @@
         {{-- <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/text-only/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" data-upgraded=",MaterialButton,MaterialRipple">View Source<span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 255.952px; height: 255.952px; transform: translate(-50%, -50%) translate(70px, 17px);"></span></span></a> --}}
     </div>
 
+
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
     <!-- Semantic-ui core js     -->
     <script src="{{asset('assets/semantic/semantic.min.js')}}"></script>
 
     <script type="text/javascript">
+        $('.menu .item').tab();
         $('select.dropdown').dropdown();
         $('.ui.checkbox').checkbox();
         $('.ui.radio.checkbox').checkbox();

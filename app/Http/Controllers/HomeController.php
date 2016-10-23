@@ -8,6 +8,8 @@ use Illuminate\Support\Collection;
 use Auth;
 use DB;
 use App\CourseTest;
+use App\Teacher;
+use App\ProfPrincipal;
 
 // TODO : mettre la table à jour
 class HomeController extends Controller
@@ -386,7 +388,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function get_teacher_by_id(Request $request){
+    public function get_teacher_by_id($id){
         // Teacher relation
           // - user -> ok
           // - profile-photo
@@ -396,7 +398,8 @@ class HomeController extends Controller
           // - discipline -> ok
 
           // l admin doit entrer les donnees a modifier
-      $id = Input::get('teacher_id');
+      // $id = Input::get('teacher_id');
+      // $id = Input::all();
 
       $user = DB::table('users')->where('id', $id)->first();
 
@@ -420,10 +423,18 @@ class HomeController extends Controller
       $classrooms = DB::table('Classroom')->select('Classroom.classRoomID'
                                     ,'Classroom.ClassRoomName')->get();
 
+
+
       $prof_pricinpal = DB::table('Classroom')->join('ProfPrincipal', 'Classroom.classRoomID'
                      ,'=', 'ProfPrincipal.classRoomID')->where('ProfPrincipal.idTeacher', $id)
-                     ->select('Classroom.classRoomID','Classroom.ClassRoomName')
-                     ->get();
+                     ->select('Classroom.classRoomID',
+                     'Classroom.ClassRoomName',
+                     'ProfPrincipal.idTeacher')->get();
+
+      $isProfprinc = false;
+      if ($prof_pricinpal->count() >= 1) {
+          $isProfprinc = true;
+      }
 
 
       return view('Administration.get_teacher_by_id', [
@@ -433,6 +444,7 @@ class HomeController extends Controller
           ,'courses' => $courses
           ,'classrooms' => $classrooms
           ,'prof_pricinpal' => $prof_pricinpal
+          ,'isProfprinc' => $isProfprinc
       ]);
 
     }
@@ -449,6 +461,74 @@ class HomeController extends Controller
         // - academiqueYear ->
         $id = Input::get('studentMatricule');
     }
+
+
+
+    public function teacherUpdate(Request $request){
+
+      $user = Input::get('users');
+      $userupdate = DB::table('users')->where('id', $user['id'])
+                        ->update($user);
+
+      $teacher = DB::table('Teacher')->where('idTeacher', $user['id'])
+                                     ->first();
+
+      $deleteclassroom  = Input::get('deletecassroom');
+      $addclassroom  = Input::get('addclassroom');
+      $deleteclassroompp = Input::get('deleteclassroompp');
+      $addclassroompp = Input::get('addclassroompp');
+      $classroomidpp = Input::get('classroomidpp');
+
+      // s il y a des classes à ajouter ou à supprimer
+      if (count($addclassroom) >= 1) {
+        foreach ($addclassroom as $key => $value) {
+           $add[] = Teacher::create([
+             'classRoomID' => $value
+            ,'idTeacher' => $teacher->idTeacher
+            ,'CourseID' => $teacher->courseID
+          ]);
+        }
+      }
+      elseif (count($deleteclassroom)>=1) {
+          foreach ($deleteclassroom as $key => $value) {
+            $delTeacherClassroom = DB::table('Teacher')->where('idTeacher', $user['id'])
+                                           ->where('classRoomID', $value)
+                                           ->delete();
+       }
+    }
+
+    // s il y a des classes à ajouter ou à supprimer à la table prof_pricinpal
+    if (count($addclassroompp) >= 1) {
+      foreach ($addclassroompp as $key => $value) {
+         $add[] = ProfPrincipal::create([
+           'classRoomID' => $value
+          ,'idTeacher' => $teacher->idTeacher
+        ]);
+      }
+    } elseif (count($classroomidpp) >= 1) {
+        foreach ($classroomidpp as $key => $value) {
+           $add[] = ProfPrincipal::create([
+             'classRoomID' => $value
+            ,'idTeacher' => $teacher->idTeacher
+          ]);
+        }
+    }
+
+    elseif (count($deleteclassroompp)>=1) {
+        foreach ($deleteclassroompp as $key => $value) {
+          $delPpClassroom = DB::table('ProfPrincipal')->where('idTeacher', $user['id'])
+                                         ->where('classRoomID', $value)
+                                         ->delete();
+
+
+     }
+  }
+
+
+
+   return $this->index();
+
+  }
 
 
 

@@ -2,7 +2,7 @@
 
 @section('section-content')
 
-<form class="ui form" style="margin-left:auto;margin-right:auto" action="{{url('/addTeacher')}}" method="POST" enctype="multipart/form-data">
+<form class="ui form" style="margin-left:auto;margin-right:auto" action="{{url('/teacherUpdate')}}" method="POST" enctype="multipart/form-data">
 <section id="my-properties">
   <div class="my-properties">
 
@@ -11,14 +11,16 @@
       <div class="col-md-7 col-sm-10">
         {{ csrf_field() }}
 
+
+
          <div class="field">
            <label>Nom & Prenoms </label>
            <div class="two fields">
                 <div class="field">
-                  <input name="users[teacherFirstName]" value="{{$user->userFirstName}}" type="text">
+                  <input name="users[userFirstName]" value="{{$user->userFirstName}}" type="text">
                 </div>
                 <div class="field">
-                  <input name="users[teacherLastName]" value="{{$user->userLastName}}" type="text">
+                  <input name="users[userLastName]" value="{{$user->userLastName}}" type="text">
                 </div>
            </div>
          </div>
@@ -26,37 +28,50 @@
            <label>Contacts</label>
            <div class="fields">
              <div class="ten wide field">
-                     <input name="users[teacherEmail]" value="{{$user->email}}" type="text">
+                     <input name="users[email]" value="{{$user->email}}" type="text">
                    </div>
                    <div class="six wide field">
-                     <input name="users[teacherContact]" value="{{$user->userContact}}" type="text">
+                     <input name="users[userContact]" value="{{$user->userContact}}" type="text">
                    </div>
            </div>
          </div>
 
-          <br>
-         <div class="field">
-            <label class="ui warning small">Selectionner l'ancienne valeur du champ(à gauche) si vous voulez comme valeurs entrantes(à droite)</label>
-         </div>
-         <br>
+         {{-- ===== MAJ de ses classes =======--}}
 
-
-         <div class="field">
+         {{-- <div class="field">
            <div class="fields">
              <div class="eight wide field">
                <label>Discipline enseignée</label>
-               <select name="course_id">
+               <select name="DeleteCourses[course_id]">
                  @foreach($teacher_courses as $tcourse)
                      <option value="{{$tcourse->courseID}}">
                        {{$tcourse->courseName}}
                      </option>
                  @endforeach
                 </select>
+
+                <table class="ui table">
+
+                  <tbody>
+                        @foreach($teacher_courses as $tcourse)
+                         <tr class="unread">
+                               <td class="">{{$tcourse->courseName}}</td>
+                               <td >
+                                 <div class="checkbox">
+                                  <label><input type="checkbox" name="courseid" value="{{$tcourse->courseID}}">
+                                    Selectionner pour supprimer</label>
+                                </div>
+                                 {{-- {{$tcourse->courseName}}
+                               </td>
+                         </tr>
+                       @endforeach
+                 </tbody>
+              </table>
              </div>
 
              <div class="eight wide field">
                <label>Valeurs entrantes</label>
-               <select name="course_new[course_id]" required>
+               <select name="addCourses[course_id]" required>
                  @foreach($courses as $course)
                      <option value="{{$course->courseID}}">
                        {{$course->courseName}}
@@ -65,11 +80,33 @@
                 </select>
              </div>
            </div>
+         </div> --}}
+
+         <h4 class="ui dividing header">Classes </h4>
+         <div class="field">
+
+           <table class="ui table">
+
+             <tbody>
+                   @foreach($teacher_classroom as $tclassrooms)
+                    <tr class="unread">
+                          <td style="width:30%">{{$tclassrooms->ClassRoomName}}</td>
+                          <td style="width:60%; padding-right:10px;">
+                            <div class="checkbox pull-right">
+                             <label><input type="checkbox" name="deletecassroom[]" value="{{$tclassrooms->classRoomID}}">
+                               Selectionner la {{$tclassrooms->ClassRoomName }} pour la supprimer </label>
+                           </div>
+                          </td>
+                    </tr>
+                  @endforeach
+            </tbody>
+         </table>
+
          </div>
 
          <div class="field">
            <div class="fields">
-             <div class="eight wide field">
+             {{-- <div class="eight wide field">
                <label>Classes</label>
                <select name="classroom">
                  @foreach($teacher_classroom as $tclassrooms)
@@ -78,11 +115,11 @@
                      </option>
                  @endforeach
                 </select>
-             </div>
+             </div> --}}
 
              <div class="eight wide field">
-               <label>Valeurs entrantes</label>
-               <select name="classroom_new[classroom_id]">
+               <label> Ajouter de nouvelles classes </label>
+               <select name="addclassroom[]" multiple>
                  @foreach($classrooms as $classroom)
                      <option value="{{$classroom->classRoomID}}">
                        {{$classroom->ClassRoomName}}
@@ -94,25 +131,46 @@
            </div>
          </div>
 
-         @if($prof_pricinpal->count() > 1)
-           <input type="hidden" name="pp_new[pp_count]" value="{{$prof_pricinpal->count()}}">
+        <h4 class="ui dividing header">Professeur principal</h4>
+
+         @if($isProfprinc)
+           {{-- <input type="hidden" name="pp_new[pp_count]" value="{{$isProfprinc}}"> --}}
+
+           <div class="field">
+              <table class="ui table">
+               <tbody>
+                     @foreach($prof_pricinpal as $ppclassrooms)
+                      <tr class="unread">
+                            <td style="width:30%">{{$ppclassrooms->ClassRoomName}}</td>
+                            <td style="width:60%; padding-right:10px;">
+                              <div class="checkbox pull-right">
+                               <label><input type="checkbox" name="deleteclassroompp[]" value="{{$ppclassrooms->classRoomID}}">
+                                 Selectionner la {{$ppclassrooms->ClassRoomName }} pour la supprimer </label>
+                             </div>
+                            </td>
+                      </tr>
+                    @endforeach
+              </tbody>
+           </table>
+
+           </div>
 
            <div class="field">
              <div class="fields">
-               <div class="eight wide field">
+               {{-- <div class="eight wide field">
                  <label>Classes</label>
                  <select name="pp">
-                   @foreach($teacher_classroom as $tclassrooms)
-                       <option value="{{$tclassrooms->classRoomID}}">
-                         {{$tclassrooms->ClassRoomName}}
+                   @foreach($prof_pricinpal as $ppclassrooms)
+                       <option value="{{$ppclassrooms->classRoomID}}">
+                         {{$ppclassrooms->ClassRoomName}}
                        </option>
                    @endforeach
                   </select>
-               </div>
+               </div> --}}
 
                <div class="eight wide field">
-                 <label>Valeurs entrantes</label>
-                 <select name="pp_new[classroom_id]">
+                 <label>Ajouter de nouvelles classes</label>
+                 <select name="addclassroompp[]" multiple>
                    @foreach($classrooms as $classroom)
                        <option value="{{$classroom->classRoomID}}">
                          {{$classroom->ClassRoomName}}
@@ -146,7 +204,7 @@
 
                 </div>
                 <label>Selectionner ses classes</label>
-                <select name="ClassRoomID-pp[]" multiple>
+                <select name="classroomidpp[]" multiple>
                   @foreach($classrooms as $classroom)
                       <option value="{{$classroom->classRoomID}}">
                         {{$classroom->ClassRoomName}}
