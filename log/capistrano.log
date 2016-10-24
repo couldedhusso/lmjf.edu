@@ -16915,3 +16915,574 @@ and the repository exists.
  DEBUG [82c8814c] 	                                                                                                                   
  DEBUG [82c8814c] 	
  DEBUG [82c8814c] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-10-24 12:32:00 +0300 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [192f739a] Running /usr/bin/env mkdir -p /tmp/lmjf.edu/ as ubuntu@54.209.46.204
+ DEBUG [192f739a] Command: /usr/bin/env mkdir -p /tmp/lmjf.edu/
+  INFO [192f739a] Finished in 2.741 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/lmjf.edu/git-ssh.sh 0.0%
+  INFO Uploading /tmp/lmjf.edu/git-ssh.sh 100.0%
+  INFO [e674805d] Running /usr/bin/env chmod +rx /tmp/lmjf.edu/git-ssh.sh as ubuntu@54.209.46.204
+ DEBUG [e674805d] Command: /usr/bin/env chmod +rx /tmp/lmjf.edu/git-ssh.sh
+  INFO [e674805d] Finished in 0.400 seconds with exit status 0 (successful).
+  INFO [b84d608b] Running /usr/bin/env git ls-remote --heads git@github.com:couldedhusso/lmjf.edu.git as ubuntu@54.209.46.204
+ DEBUG [b84d608b] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/lmjf.edu/git-ssh.sh" ; /usr/bin/env git ls-remote --heads git@github.com:couldedhusso/lmjf.edu.git )
+ DEBUG [b84d608b] 	cfcff5ef06c8834169cb25c2adadc03dcf6dc66d	refs/heads/master
+  INFO [b84d608b] Finished in 1.219 seconds with exit status 0 (successful).
+  INFO [f004981a] Running /usr/bin/env mkdir -p /home/ubuntu/remote/lmjf/shared /home/ubuntu/remote/lmjf/releases as ubuntu@54.209.46.204
+ DEBUG [f004981a] Command: /usr/bin/env mkdir -p /home/ubuntu/remote/lmjf/shared /home/ubuntu/remote/lmjf/releases
+  INFO [f004981a] Finished in 0.551 seconds with exit status 0 (successful).
+  INFO [a4562cd4] Running /usr/bin/env mkdir -p /home/ubuntu/remote/lmjf/shared as ubuntu@54.209.46.204
+ DEBUG [a4562cd4] Command: /usr/bin/env mkdir -p /home/ubuntu/remote/lmjf/shared
+  INFO [a4562cd4] Finished in 0.478 seconds with exit status 0 (successful).
+ DEBUG [bb7719fe] Running [ -f /home/ubuntu/remote/lmjf/shared/.env ] as ubuntu@54.209.46.204
+ DEBUG [bb7719fe] Command: [ -f /home/ubuntu/remote/lmjf/shared/.env ]
+ DEBUG [bb7719fe] Finished in 0.439 seconds with exit status 0 (successful).
+ DEBUG [7014e77f] Running [ -f /home/ubuntu/remote/lmjf/current/REVISION ] as ubuntu@54.209.46.204
+ DEBUG [7014e77f] Command: [ -f /home/ubuntu/remote/lmjf/current/REVISION ]
+ DEBUG [7014e77f] Finished in 0.442 seconds with exit status 1 (failed).
+ DEBUG [6d5eb51a] Running [ -f /home/ubuntu/remote/lmjf/repo/HEAD ] as ubuntu@54.209.46.204
+ DEBUG [6d5eb51a] Command: [ -f /home/ubuntu/remote/lmjf/repo/HEAD ]
+ DEBUG [6d5eb51a] Finished in 0.391 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/ubuntu/remote/lmjf/repo
+ DEBUG [76e2f5ea] Running if test ! -d /home/ubuntu/remote/lmjf/repo; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/repo'" 1>&2; false; fi as ubuntu@54.209.46.204
+ DEBUG [76e2f5ea] Command: if test ! -d /home/ubuntu/remote/lmjf/repo; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/repo'" 1>&2; false; fi
+ DEBUG [76e2f5ea] Finished in 0.400 seconds with exit status 0 (successful).
+  INFO [6bec3487] Running /usr/bin/env git remote update --prune as ubuntu@54.209.46.204
+ DEBUG [6bec3487] Command: cd /home/ubuntu/remote/lmjf/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/lmjf.edu/git-ssh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [6bec3487] 	Fetching origin
+ DEBUG [6bec3487] 	From github.com:couldedhusso/lmjf.edu
+ DEBUG [6bec3487] 	   572ce1b..cfcff5e  master     -> master
+  INFO [6bec3487] Finished in 1.268 seconds with exit status 0 (successful).
+ DEBUG [4e1fd685] Running if test ! -d /home/ubuntu/remote/lmjf/repo; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/repo'" 1>&2; false; fi as ubuntu@54.209.46.204
+ DEBUG [4e1fd685] Command: if test ! -d /home/ubuntu/remote/lmjf/repo; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/repo'" 1>&2; false; fi
+ DEBUG [4e1fd685] Finished in 0.451 seconds with exit status 0 (successful).
+  INFO [91150d7f] Running /usr/bin/env mkdir -p /home/ubuntu/remote/lmjf/releases/20161024093208 as ubuntu@54.209.46.204
+ DEBUG [91150d7f] Command: cd /home/ubuntu/remote/lmjf/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/lmjf.edu/git-ssh.sh" ; /usr/bin/env mkdir -p /home/ubuntu/remote/lmjf/releases/20161024093208 )
+  INFO [91150d7f] Finished in 0.400 seconds with exit status 0 (successful).
+  INFO [817fd157] Running /usr/bin/env git archive master | tar -x -f - -C /home/ubuntu/remote/lmjf/releases/20161024093208 as ubuntu@54.209.46.204
+ DEBUG [817fd157] Command: cd /home/ubuntu/remote/lmjf/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/lmjf.edu/git-ssh.sh" ; /usr/bin/env git archive master | tar -x -f - -C /home/ubuntu/remote/lmjf/releases/20161024093208 )
+  INFO [817fd157] Finished in 0.601 seconds with exit status 0 (successful).
+ DEBUG [7d7d461a] Running if test ! -d /home/ubuntu/remote/lmjf/repo; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/repo'" 1>&2; false; fi as ubuntu@54.209.46.204
+ DEBUG [7d7d461a] Command: if test ! -d /home/ubuntu/remote/lmjf/repo; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/repo'" 1>&2; false; fi
+ DEBUG [7d7d461a] Finished in 0.475 seconds with exit status 0 (successful).
+ DEBUG [d224f2fc] Running /usr/bin/env git rev-list --max-count=1 master as ubuntu@54.209.46.204
+ DEBUG [d224f2fc] Command: cd /home/ubuntu/remote/lmjf/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/lmjf.edu/git-ssh.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [d224f2fc] 	cfcff5ef06c8834169cb25c2adadc03dcf6dc66d
+ DEBUG [d224f2fc] Finished in 0.407 seconds with exit status 0 (successful).
+ DEBUG [91a89765] Running if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi as ubuntu@54.209.46.204
+ DEBUG [91a89765] Command: if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi
+ DEBUG [91a89765] Finished in 0.439 seconds with exit status 0 (successful).
+  INFO [4f420ebc] Running /usr/bin/env echo "cfcff5ef06c8834169cb25c2adadc03dcf6dc66d" >> REVISION as ubuntu@54.209.46.204
+ DEBUG [4f420ebc] Command: cd /home/ubuntu/remote/lmjf/releases/20161024093208 && /usr/bin/env echo "cfcff5ef06c8834169cb25c2adadc03dcf6dc66d" >> REVISION
+  INFO [4f420ebc] Finished in 0.431 seconds with exit status 0 (successful).
+  INFO [0cf311e3] Running /usr/bin/env mkdir -p /home/ubuntu/remote/lmjf/releases/20161024093208 as ubuntu@54.209.46.204
+ DEBUG [0cf311e3] Command: /usr/bin/env mkdir -p /home/ubuntu/remote/lmjf/releases/20161024093208
+  INFO [0cf311e3] Finished in 0.442 seconds with exit status 0 (successful).
+ DEBUG [3c1121f1] Running [ -L /home/ubuntu/remote/lmjf/releases/20161024093208/.env ] as ubuntu@54.209.46.204
+ DEBUG [3c1121f1] Command: [ -L /home/ubuntu/remote/lmjf/releases/20161024093208/.env ]
+ DEBUG [3c1121f1] Finished in 0.435 seconds with exit status 1 (failed).
+ DEBUG [c706abd4] Running [ -f /home/ubuntu/remote/lmjf/releases/20161024093208/.env ] as ubuntu@54.209.46.204
+ DEBUG [c706abd4] Command: [ -f /home/ubuntu/remote/lmjf/releases/20161024093208/.env ]
+ DEBUG [c706abd4] Finished in 0.441 seconds with exit status 1 (failed).
+  INFO [2bcbb5d2] Running /usr/bin/env ln -s /home/ubuntu/remote/lmjf/shared/.env /home/ubuntu/remote/lmjf/releases/20161024093208/.env as ubuntu@54.209.46.204
+ DEBUG [2bcbb5d2] Command: /usr/bin/env ln -s /home/ubuntu/remote/lmjf/shared/.env /home/ubuntu/remote/lmjf/releases/20161024093208/.env
+  INFO [2bcbb5d2] Finished in 0.448 seconds with exit status 0 (successful).
+ DEBUG [d2d7da31] Running if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi as ubuntu@54.209.46.204
+ DEBUG [d2d7da31] Command: if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi
+ DEBUG [d2d7da31] Finished in 0.473 seconds with exit status 0 (successful).
+  INFO [348bb199] Running /usr/bin/env composer install as ubuntu@54.209.46.204
+ DEBUG [348bb199] Command: cd /home/ubuntu/remote/lmjf/releases/20161024093208 && /usr/bin/env composer install
+ DEBUG [348bb199] 	Loading composer repositories with package information
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	Installing dependencies (including require-dev) from lock file
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing nikic/php-parser (v2.1.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing classpreloader/classpreloader (3.0.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing doctrine/inflector (v1.1.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing jakub-onderka/php-console-color (0.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/polyfill-util (v1.2.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/polyfill-php56 (v1.2.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing jeremeamia/superclosure (2.2.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing league/flysystem (1.0.28)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing psr/log (1.0.2)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing monolog/monolog (1.21.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing mtdowling/cron-expression (v1.1.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/polyfill-mbstring (v1.2.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/translation (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing nesbot/carbon (1.21.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/var-dumper (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/debug (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/console (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing jakub-onderka/php-console-highlighter (v0.3.2)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing dnoegel/php-xdg-base-dir (0.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing psy/psysh (v0.7.2)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing paragonie/random_compat (v2.0.2)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing ramsey/uuid (3.5.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing swiftmailer/swiftmailer (v5.4.3)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/http-foundation (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/event-dispatcher (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/http-kernel (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/process (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/routing (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing vlucas/phpdotenv (v2.4.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/finder (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing maximebf/debugbar (v1.13.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing laravel/framework (v5.3.18)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing barryvdh/laravel-debugbar (v2.3.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing fzaninotto/faker (v1.6.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing laracasts/generators (1.1.3)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing hamcrest/hamcrest-php (v1.2.2)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing mockery/mockery (0.9.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing webmozart/assert (1.1.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpdocumentor/reflection-common (1.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpdocumentor/type-resolver (0.2)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpdocumentor/reflection-docblock (3.1.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpunit/php-token-stream (1.4.8)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/yaml (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/version (2.0.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/resource-operations (1.0.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/recursion-context (1.0.2)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/object-enumerator (1.0.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/global-state (1.1.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/exporter (1.2.2)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/environment (1.3.8)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/diff (1.4.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/comparator (1.2.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpunit/php-text-template (1.2.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing doctrine/instantiator (1.0.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpunit/phpunit-mock-objects (3.4.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpunit/php-timer (1.0.8)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpunit/php-file-iterator (1.4.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing sebastian/code-unit-reverse-lookup (1.0.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpunit/php-code-coverage (4.0.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpspec/prophecy (v1.6.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing myclabs/deep-copy (1.5.4)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing phpunit/phpunit (5.6.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/css-selector (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing symfony/dom-crawler (v3.1.5)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	  - Installing way/generators (3.0.3)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	    Loading from cache
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-aws-s3-v2 (Allows you to use S3 storage with AWS SDK v2)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-aws-s3-v3 (Allows you to use S3 storage with AWS SDK v3)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-azure (Allows you to use Windows Azure Blob storage)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-cached-adapter (Flysystem adapter decorator for metadata caching)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-copy (Allows you to use Copy.com storage)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-dropbox (Allows you to use Dropbox storage)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-eventable-filesystem (Allows you to use EventableFilesystem)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-rackspace (Allows you to use Rackspace Cloud Files)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-sftp (Allows you to use SFTP server storage via phpseclib)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-webdav (Allows you to use WebDAV storage)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	league/flysystem suggests installing league/flysystem-ziparchive (Allows you to use ZipArchive adapter)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing ext-mongo (Allow sending log messages to a MongoDB server)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server via PHP Driver)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing php-amqplib/php-amqplib (Allow sending log messages to an AMQP server using php-amqplib)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	monolog/monolog suggests installing sentry/sentry (Allow sending log messages to a Sentry server)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/translation suggests installing symfony/config ()
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/var-dumper suggests installing ext-symfony_debug ()
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	psy/psysh suggests installing ext-pdo-sqlite (The doc command requires SQLite to work.)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	paragonie/random_compat suggests installing ext-libsodium (Provides a modern crypto API that can be used to generate random bytes.)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	ramsey/uuid suggests installing ext-libsodium (Provides the PECL libsodium extension for use with the SodiumRandomGenerator)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	ramsey/uuid suggests installing ext-uuid (Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	ramsey/uuid suggests installing ircmaxell/random-lib (Provides RandomLib for use with the RandomLibAdapter)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	ramsey/uuid suggests installing moontoast/math (Provides support for converting UUID to 128-bit integer (in string form).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	ramsey/uuid suggests installing ramsey/uuid-console (A console application for generating UUIDs with ramsey/uuid)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	ramsey/uuid suggests installing ramsey/uuid-doctrine (Allows the use of Ramsey\Uuid\Uuid as Doctrine field type.)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/event-dispatcher suggests installing symfony/dependency-injection ()
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/http-kernel suggests installing symfony/browser-kit ()
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/http-kernel suggests installing symfony/class-loader ()
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/http-kernel suggests installing symfony/config ()
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/http-kernel suggests installing symfony/dependency-injection ()
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/routing suggests installing doctrine/annotations (For using the annotation loader)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/routing suggests installing symfony/config (For using the all-in-one router or any loader)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/routing suggests installing symfony/dependency-injection (For loading routes from a service)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	symfony/routing suggests installing symfony/expression-language (For using expression matching)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	maximebf/debugbar suggests installing kriswallsmith/assetic (The best way to manage assets)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	maximebf/debugbar suggests installing predis/predis (Redis storage)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	laravel/framework suggests installing aws/aws-sdk-php (Required to use the SQS queue driver and SES mail driver (~3.0).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	laravel/framework suggests installing doctrine/dbal (Required to rename columns and drop SQLite columns (~2.4).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	laravel/framework suggests installing guzzlehttp/guzzle (Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~5.3|~6.0).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	laravel/framework suggests installing league/flysystem-aws-s3-v3 (Required to use the Flysystem S3 driver (~1.0).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	laravel/framework suggests installing league/flysystem-rackspace (Required to use the Flysystem Rackspace driver (~1.0).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	laravel/framework suggests installing pda/pheanstalk (Required to use the beanstalk queue driver (~3.0).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	laravel/framework suggests installing predis/predis (Required to use the redis cache and queue drivers (~1.0).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	laravel/framework suggests installing pusher/pusher-php-server (Required to use the Pusher broadcast driver (~2.0).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	laravel/framework suggests installing symfony/psr-http-message-bridge (Required to psr7 bridging features (0.2.*).)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	sebastian/global-state suggests installing ext-uopz (*)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	phpunit/php-code-coverage suggests installing ext-xdebug (>=2.4.0)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	phpunit/phpunit suggests installing ext-xdebug (*)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	phpunit/phpunit suggests installing phpunit/php-invoker (~1.1)
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	Generating autoload files
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	> Illuminate\Foundation\ComposerScripts::postInstall
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	> php artisan optimize
+ DEBUG [348bb199] 	
+ DEBUG [348bb199] 	Generating optimized class loader
+  INFO [348bb199] Finished in 3.676 seconds with exit status 0 (successful).
+ DEBUG [ff7cf581] Running if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi as ubuntu@54.209.46.204
+ DEBUG [ff7cf581] Command: if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi
+ DEBUG [ff7cf581] Finished in 0.398 seconds with exit status 0 (successful).
+  INFO [89a22391] Running /usr/bin/env php artisan optimize as ubuntu@54.209.46.204
+ DEBUG [89a22391] Command: cd /home/ubuntu/remote/lmjf/releases/20161024093208 && /usr/bin/env php artisan optimize
+ DEBUG [89a22391] 	Generating optimized class loader
+ DEBUG [89a22391] 	
+  INFO [89a22391] Finished in 2.003 seconds with exit status 0 (successful).
+ DEBUG [5959fbee] Running if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi as ubuntu@54.209.46.204
+ DEBUG [5959fbee] Command: if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi
+ DEBUG [5959fbee] Finished in 0.457 seconds with exit status 0 (successful).
+  INFO [b4f593e5] Running /usr/bin/env chmod 777 -R storage as ubuntu@54.209.46.204
+ DEBUG [b4f593e5] Command: cd /home/ubuntu/remote/lmjf/releases/20161024093208 && /usr/bin/env chmod 777 -R storage
+  INFO [b4f593e5] Finished in 0.501 seconds with exit status 0 (successful).
+  INFO [59ba3579] Running /usr/bin/env chmod 777 -R bootstrap/cache as ubuntu@54.209.46.204
+ DEBUG [59ba3579] Command: cd /home/ubuntu/remote/lmjf/releases/20161024093208 && /usr/bin/env chmod 777 -R bootstrap/cache
+  INFO [59ba3579] Finished in 0.474 seconds with exit status 0 (successful).
+ DEBUG [8412533d] Running if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi as ubuntu@54.209.46.204
+ DEBUG [8412533d] Command: if test ! -d /home/ubuntu/remote/lmjf/releases/20161024093208; then echo "Directory does not exist '/home/ubuntu/remote/lmjf/releases/20161024093208'" 1>&2; false; fi
+ DEBUG [8412533d] Finished in 0.522 seconds with exit status 0 (successful).
+  INFO [55222949] Running /usr/bin/env php artisan db:seed as ubuntu@54.209.46.204
+ DEBUG [55222949] Command: cd /home/ubuntu/remote/lmjf/releases/20161024093208 && /usr/bin/env php artisan db:seed
+ DEBUG [55222949] 	Seeded: SuperUserSeeder
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	                                                                                                                                                               
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	  [Illuminate\Database\QueryException]                                                                                                                         
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	  SQLSTATE[HY000]: General error: 1364 Field 'created_at' doesn't have a default value (SQL: insert into `anneeScolaire` (`academicYear`) values (2016-2017))  
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	                                                                                                                                                               
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	                                                                                        
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	  [PDOException]                                                                        
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	  SQLSTATE[HY000]: General error: 1364 Field 'created_at' doesn't have a default value  
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	                                                                                        
+ DEBUG [55222949] 	
+ DEBUG [55222949] 	
