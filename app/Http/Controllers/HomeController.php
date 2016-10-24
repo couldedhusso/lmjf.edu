@@ -32,6 +32,7 @@ class HomeController extends Controller
     public function index()
     {
         $dbData = $this->InitDataSession();
+
         return view('/home', [
                      'aYear' => $dbData['aYear']
                     ,'semestre' => $dbData['semestre']
@@ -40,8 +41,10 @@ class HomeController extends Controller
                     ,'studentByteacher' => $dbData['studentByteacher']
                     ,'currentAcademiqueYearStudent' => $dbData['currentAcademiqueYearStudent']
                     ,'allTeacher'  =>  $dbData['allTeacher']
-                    ,'allTeacher'  =>  $dbData['allTeacher']
                     ,'profdisciplines'  =>  $dbData['profdisciplines']
+                    ,'studentByclassroom'  =>  $dbData['studentByclassroom']
+                    ,'currentSemesterEval' => $dbData['currentSemesterEval']
+
         ]);
     }
 
@@ -212,123 +215,143 @@ class HomeController extends Controller
                      ->select('academicYear')->first();
     }
 
-    public function delete_teacher(Request $request){
-        $deleTeacher = User::find(Input::get('teacher_id'));
-        $deleTeacher->delete();
-        $this->index();
+    public function delete_classeroom($id){
+        $delclassroom = DB::table('Classroom')->where('id', $id)->delete();
+        return redirect()->action('HomeController@index');
     }
 
-    public function delete_student(Request $request){
-        $deleStudent = Student::find(Input::get('studentMatricule'));
-        $deleStudent->delete();
-        $this->index();
+    public function delete_teacher($id){
+        $delTeacher = DB::table('users')->where('id', $id)->delete();
+        return redirect()->action('HomeController@index');
+    }
+
+    public function delete_student($id){
+
+        $delStudent = DB::table('Student')->where('studentMatricule', $id)->delete();
+        return redirect()->action('HomeController@index');
     }
 
     public function gradeStudent(Request $request){
+
+
       // $idTeacher = Auth::Teacher()->id;
-      $q = Input::get('note');
-      $idTeacher = $q['teacher_id'];
-
-      $courseTest = array(
-          'teacherID' => $idTeacher
-          ,'testName'  => $q['testDescription']
-          ,'testDescription'  => '-'
-          ,'maxGradevalue'  => $q['valmaxi']
-          ,'CourseChildID'  => $q['CourseChild']
-          ,'semestreID'  => $q['periode']
-          ,'classRoomID'  => $q['classroom']
-      );
-
-      // dd($reqDataClassroom);
-
-      // // add teacher to db
-      $courseTest = CourseTest::create($courseTest);
-      // $newTest =  $newTest->CoursetestID -- why it doesnt work
-
-      $courseTest = DB::table('courseTest')->orderBy('created_at', 'desc')
-                              ->select('CoursetestID')
-                              ->first();
 
       $aYear =  DB::table('anneeScolaire')->orderBy('academicYear', 'desc')
                               ->select('academicYear')
                               ->first();
-
-      $teacher = DB::table('Teacher')->join('users', 'users.id', '=', 'Teacher.idTeacher')
-                ->where('Teacher.idTeacher', $idTeacher)
-                ->select('users.*')
-                ->first();
-
-
-      $semestre = DB::table('Semestre')->where('academicYear', '=',$aYear->academicYear)
-                            ->where('semestreDescription', '=', '1er trimestre')
-                            ->first();
-
-
-      $evaluations = DB::table('courseTest')
-                        ->where('courseTest.teacherID', '=', $idTeacher)
-                        ->where('courseTest.semestreID', '=', $semestre->semestreID)
-                        ->get();
-
-
-      $classrooms = DB::table('Classroom')
-                          ->join('Teacher', 'Classroom.classRoomID', '='
-                          ,'Teacher.classRoomID')
-                          ->where('Teacher.idTeacher', '=', $idTeacher)
-                          ->select('Classroom.ClassRoomName', 'Classroom.classRoomID')
-                          ->distinct()->get();
-                          $keyCollection = [];
-                          foreach ($classrooms as  $value) {
-                              array_push($keyCollection, $value->classRoomID);
-
-                          }
-
-    // $aYear =  DB::table('anneeScolaire')->orderBy('academicYear', 'desc')
-    //                                               ->select('academicYear')
-    //                                               ->first();
-    //
-    //
-    //
-    // $semestre = DB::table('Semestre')->where('academicYear', '=', $aYear->academicYear)
-    //                                             ->where('semestreDescription', '=', '1er trimestre')
-    //                                             ->first();
-
-    $studentByclassroom = DB::table('Classroom')
-                                                  ->join('Student', 'Classroom.classRoomID', '='
-                                                  ,'Student.classRoomID')
-                                                  ->whereIn('Student.classRoomID', $keyCollection)
-                                                  ->select('Student.*','Classroom.ClassRoomName', 'Classroom.classRoomID')
-                                                  ->get();
-
-      // $studentByclassroom = DB::table('Classroom')
-      //                       ->join('Student', 'Classroom.classRoomID', '='
-      //                       ,'Student.classRoomID')
-      //                       ->where('Classroom.idTeacher', '=', $idTeacher)
-      //                       ->select('Classroom.ClassRoomName', 'Classroom.classRoomID')
-      //                       ->get();
-
-
-
-      return view('Profs.notes', compact('evaluations', 'classrooms',
-                                          'semestre',
-                                          'studentByclassroom',
-                                          'teacher',
-                                          'courseTest'
-     ));
-    }
-
-    public function saisie_note(){
-
-      $aYear =  DB::table('anneeScolaire')->orderBy('academicYear', 'desc')
-                              ->select('academicYear')
-                              ->first();
-
-
 
       $semestre = DB::table('Semestre')->where('academicYear', '=', $aYear->academicYear)
                             ->where('semestreDescription', '=', '1er trimestre')
                             ->first();
 
+      $step = Input::get('step');
+      $classSndCycle =[];
+      $sndCycle = false;
 
+      if ($step == 2) {
+        $eval = Input::get('note');
+
+        // toutes les classes de la 2nde à la Tle
+        for ($i=26; $i < 40 ; $i++) {
+          array_push($classSndCycle, $i);
+        }
+
+        $semestre = Input::get('semestre');
+        $listTeacher = DB::table('Teacher')->join('users', 'users.id', '=', 'Teacher.idTeacher')
+                  ->join('Classroom', 'Classroom.classRoomID', '=', 'Teacher.classRoomID')
+                  ->select('users.*')
+                  ->get();
+
+        // si la classe selectionnee est dans cet
+        // ens $classSndCycle => c est une classe du 2nd cycle
+        if (!in_array($eval['classroom'], $classSndCycle)) {
+            $listcourse = DB::select('select * from CourseChild');
+        }else {
+            $listcourse = DB::select('select * from Course');
+            $sndCycle = true;
+        }
+        return view('Administration.saisie_notes',  [
+              'step' => $step,
+              'classroom' => $eval['classroom'],
+              'semestre' => $eval['periode'],
+              'valmaxi' => $eval['valmaxi'],
+              'listTeacher' => $listTeacher,
+              'listcourse' => $listcourse,
+              'sndCycle' => $sndCycle
+        ]);
+
+      } else {
+          $note = Input::get('note');
+          $step = 3;
+
+          $courseTest = array(
+              'teacherID' => $note['prof']
+              ,'testName'  => $note['testDescription']
+              ,'testDescription'  => $note['testDescription']
+              ,'maxGradevalue'  => $note['valmaxi']
+              ,'CourseChildID'  => $note['course']
+              ,'semestreID'  => $note['periode']
+              ,'classRoomID' => $note['classroom']
+        );
+
+        $newTest = CourseTest::create($courseTest);
+
+        $currentYearClassroom = DB::table('Classroom')
+                              ->join('Student', 'Classroom.classRoomID', '='
+                              ,'Student.classRoomID')
+                              ->join('Enrollment', 'Enrollment.classRoomID', '=', 'Enrollment.classRoomID')
+                              ->where('Enrollment.academicYear', $aYear->academicYear)
+                              ->where('Student.classRoomID', $note['classroom'])
+                              ->select('Classroom.ClassRoomName', 'Classroom.classRoomID', 'Student.*')
+                              ->distinct()->get();
+
+      //  return view('Administration.saisie_notes',  [
+      //         'step' => $step,
+      //         'currentYearClassroom' => $currentYearClassroom,
+      //         'semestre' => $eval['periode'],
+      //         'TestID'  => $newTest->TestID
+      //   ]);
+
+        return view('Profs.notes', [
+               'step' => $step,
+               'currentYearClassroom' => $currentYearClassroom,
+               'semestre' => $note['periode'],
+               'testID'  => $newTest->id,
+               'classroom'  => $note['classroom']
+         ]);
+
+      }
+
+    }
+
+    public function saisie_note($step){
+
+      $aYear =  DB::table('anneeScolaire')->orderBy('academicYear', 'desc')
+                              ->select('academicYear')
+                              ->first();
+
+      $semestre = DB::table('Semestre')->where('academicYear', '=', $aYear->academicYear)
+                            ->where('semestreDescription', '=', '1er trimestre')
+                            ->first();
+
+      $currentYearClassroom = DB::table('Classroom')
+                            ->join('Student', 'Classroom.classRoomID', '='
+                            ,'Student.classRoomID')
+                            ->join('Enrollment', 'Enrollment.classRoomID', '=', 'Enrollment.classRoomID')
+                            ->where('Enrollment.academicYear', $aYear->academicYear)
+                            ->select('Classroom.ClassRoomName', 'Classroom.classRoomID')->distinct()->get();
+
+      if ($step == 1) {
+         return view('Administration.saisie_notes', [
+           'step' => $step,
+           'currentYearClassroom' => $currentYearClassroom,
+           'semestre' => $semestre
+         ]);
+      }elseif ($step == 2) {
+        # code...
+      }else {
+        # code...
+      }
 
       $listStudent = DB::table('Student')
                         ->join('Classroom', 'Classroom.classRoomID', '='
@@ -387,6 +410,45 @@ class HomeController extends Controller
               'listcourse' => $listcourse
         ]);
     }
+
+
+
+    public function update_student_mark($id, $classroomid){
+
+      $aYear = $this->getAcademicYear();
+      $semestre = DB::table('Semestre')->where('academicYear', '=',$aYear->academicYear)
+                      ->where('semestreDescription', '=', '1er trimestre')
+                      ->first();
+
+      $eval = DB::table('courseTest')
+      ->join('Classroom', 'courseTest.classRoomID','=','Classroom.classRoomID')
+      ->join('courseGrade', 'courseGrade.testID', '='
+      ,'courseTest.CoursetestID')
+      ->where('Classroom.classRoomID', $classroomid)
+      ->where('courseTest.CoursetestID', $id)
+      ->select('courseTest.CoursetestID', 'courseGrade.studentMatricule', 'courseGrade.Grade')
+      ->get();
+
+      $currentYearClassroom = DB::table('Classroom')
+                            ->join('Student', 'Classroom.classRoomID', '='
+                            ,'Student.classRoomID')
+                            ->join('Enrollment', 'Enrollment.classRoomID', '=', 'Enrollment.classRoomID')
+                            ->where('Enrollment.academicYear', $aYear->academicYear)
+                            ->where('Classroom.classRoomID', $classroomid)
+                            ->select('Student.*')
+                            ->distinct()->get();
+
+                            // dd($currentYearClassroom);
+
+     return view('Administration.update-eval-student', [
+       'testid' => $id,
+       'currentYearClassroom' => $currentYearClassroom,
+       'eval' => $eval
+     ]);
+
+
+    }
+
 
     public function get_teacher_by_id($id){
         // Teacher relation
@@ -449,17 +511,66 @@ class HomeController extends Controller
 
     }
 
-    public function update_student_by_id(Request $request){
+    public function get_student($classroomid, $id){
 
-      // Student relation
-        // - classe ->
-        // - profile-photo
-        // - enrollment ->
-        // - coursetest ->
-        // - courseGrade ->
-        // - semestre ->
-        // - academiqueYear ->
-        $id = Input::get('studentMatricule');
+        // $aYear = $this->getAcademicYear();
+
+        $classroom = $this->getAllClassroom();
+
+        $student = DB::table('Student')->join('Classroom', 'Classroom.classRoomID'
+                          ,'=', 'Student.classRoomID')
+                          ->where('Classroom.classRoomID', $classroomid)
+                          ->where('Student.studentMatricule', $id)
+                          ->first();
+        $parent = DB::table('Parent')->join('Student', 'Parent.parentID'
+                          ,'=', 'Student.studentParentID')
+                          ->where('Student.studentParentID', $student->studentParentID)
+                          ->first();
+
+        return view('Administration.update_student_by_id', [
+            'student' => $student
+            ,'classrooms' => $classroom
+            ,'parent' => $parent
+      ]);
+    }
+
+    public function update_student_info(Request $request){
+
+      $student = Input::get('studentDatas');
+      $parent = Input::get('studentRespoDatas');
+      // dd($student);
+      $update_student_info = DB::table('Student')->where('studentMatricule',
+                            $student['studentMatricule'])->update($student);
+
+      return redirect()->action('HomeController@index');
+    }
+
+    /**
+     * cette function permet de retourner la
+     * liste de classe
+     * @params id de la classe
+     * @return Collection
+     */
+
+    public function liste_de_classe($id){
+
+      $aYear =  DB::table('anneeScolaire')->orderBy('academicYear', 'desc')
+                      ->select('academicYear')->first();
+
+      $studentByclassroom = DB::table('Classroom')
+                                ->join('Enrollment', 'Enrollment.classRoomID', '=',
+                                'Classroom.classRoomID')
+                                ->join('Student', 'Classroom.classRoomID', '=','Student.classRoomID')
+                                ->where('Enrollment.academicYear', $aYear->academicYear)
+                                ->where('Classroom.classRoomID', $id)
+                                ->select('Student.*', 'Classroom.classRoomID', 'Classroom.ClassRoomName')
+                                ->distinct()->get();
+
+
+
+      return view('Administration.sidebarSearch.liste_de_classe', [
+        'studentByclassroom' => $studentByclassroom
+        ]);
     }
 
 
@@ -524,11 +635,12 @@ class HomeController extends Controller
      }
   }
 
-
-
-   return $this->index();
+    return redirect()->action('HomeController@index');
 
   }
+
+
+
 
 
 
@@ -545,7 +657,6 @@ class HomeController extends Controller
 
      $idTeacher = Auth::user()->id;
 
-
      $aYear =  DB::table('anneeScolaire')->orderBy('academicYear', 'desc')
                      ->select('academicYear')->first();
 
@@ -553,12 +664,25 @@ class HomeController extends Controller
                      ->where('semestreDescription', '=', '1er trimestre')
                      ->first();
 
+     $currentSemesterEval = DB::table('courseTest')->join('Classroom',
+                                      'courseTest.classRoomID', '=', 'Classroom.classRoomID')
+                                ->where('courseTest.semestreID', '=', $semestre->semestreID)
+                                ->select('Classroom.classRoomID','Classroom.ClassRoomName'
+                                                  ,'courseTest.CoursetestID','courseTest.maxGradevalue')
+                                ->get();
+
+
+
+     /* TODO : Need to remove $evaluations, $classrooms,
+     *   $studentByteacher, $currentAcademiqueYearStudent
+     *   because these queries are not accurate
+     */
      $evaluations = DB::table('courseTest')
                          ->where('courseTest.teacherID', '=', $idTeacher)
                          ->where('courseTest.semestreID', '=', $semestre->semestreID)
                          ->get();
 
-    $classrooms = DB::table('Classroom')
+     $classrooms = DB::table('Classroom')
                      ->join('Teacher', 'Classroom.classRoomID', '=','Teacher.classRoomID')
                      ->where('Teacher.idTeacher', '=', $idTeacher)
                      ->select('Classroom.ClassRoomName', 'Classroom.classRoomID')
@@ -573,6 +697,8 @@ class HomeController extends Controller
 
        $currentAcademiqueYearStudent = DB::table('Student')->where('academicYear',
                                                   $aYear->academicYear)->get();
+
+
 
 
        $allTeacher = DB::table('Course')
@@ -590,11 +716,17 @@ class HomeController extends Controller
                             ->select('CourseChild.labelCourse', 'CourseChild.CourseChildID')
                             ->distinct()->get();
 
-      $evaluations = DB::table('courseTest')
-                          ->where('courseTest.teacherID', '=', $idTeacher)
-                          ->where('courseTest.semestreID', '=', $semestre->semestreID)
-                          ->get();
 
+    $studentByclassroom = DB::table('Classroom')
+                              ->join('Enrollment', 'Enrollment.classRoomID', '=',
+                              'Classroom.classRoomID')
+                              ->join('Student', 'Classroom.classRoomID', '=','Student.classRoomID')
+                              ->where('Enrollment.academicYear', $aYear->academicYear)
+                              ->select(DB::raw('count(Student.studentMatricule) as effectif'), 'Classroom.classRoomID', 'Classroom.ClassRoomName')
+                              ->groupBy('Classroom.classRoomID', 'Classroom.ClassRoomName')
+                              ->distinct()->get();
+
+                              // dd($studentByclassroom);
 
      $db = [
             'aYear'  => $aYear
@@ -606,6 +738,8 @@ class HomeController extends Controller
             ,'allTeacher'  => $allTeacher
             ,'profdisciplines'  => $profdisciplines
             ,'evaluations'  => $evaluations
+            ,'studentByclassroom' => $studentByclassroom
+            ,'currentSemesterEval' => $currentSemesterEval
        ];
 
        return $db;

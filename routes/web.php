@@ -268,7 +268,7 @@ Route::group(['middleware' => 'auth'], function () {
       // return view('Admin.student-registration', compact('studentsCollection'));
   });
 
-  Route::get('entrer-des-notes', 'HomeController@saisie_note');
+  Route::get('saisir-les-notes/{step}', 'HomeController@saisie_note');
 
 
   // mes post
@@ -279,12 +279,23 @@ Route::group(['middleware' => 'auth'], function () {
   });
 
   Route::get('update_teacher_info/{id}', 'HomeController@get_teacher_by_id');
+  Route::get('delete_teacher/{id}', 'HomeController@delete_teacher');
+  Route::get('liste_de_classe/{id}', 'HomeController@liste_de_classe');
+  Route::get('delete_classe/{id}', 'HomeController@delete_classe');
+  Route::get('get_student/{classromid}/{id}', 'HomeController@get_student');
+  Route::post('update_student_info', 'HomeController@update_student_info');
+  Route::get('delete_student/{id}', 'HomeController@delete_student');
+  Route::get('update_student_mark/{id}/{classromid}', 'HomeController@update_student_mark');
+
+  Route::get('delete_Coursetest/{id}', function($id){
+      $deltest = DB::table('courseTest')->where('CoursetestID', $id)->delete();
+      return redirect()->action('HomeController@index');
+  });
 
  // Route::get('update_teacher_info/{id}', array('as' => 'update_teacher_info',
  //            'uses' => 'HomeController@get_teacher_by_id'));
 
-  // mes Delete route
-  Route::post('delete_teacher', 'HomeController@delete_teacher');
+  // Route::post('delete_teacher', 'HomeController@delete_teacher');
   Route::post('update_teacher_info', 'HomeController@get_teacher_by_id');
   Route::post('get-student-by-id', 'HomeController@get_student_by_id');
 

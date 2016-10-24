@@ -11,8 +11,6 @@
       <div class="col-md-7 col-sm-10">
         {{ csrf_field() }}
 
-
-
          <div class="field">
            <label>Nom & Prenoms </label>
            <div class="two fields">

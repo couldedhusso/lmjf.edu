@@ -59,20 +59,33 @@ class EvaluationsController extends Controller
 
   public function saisie_des_notes(Request $request) {
 
+
+
       $reqData = Input::except('_token', 'name');
 
-      $studentByclassroom = DB::table('Classroom')
-                          ->join('Student', 'Classroom.classRoomID', '='
-                          ,'Student.classRoomID')
-                          ->where('Classroom.classRoomID', $reqData['classRoomID'])
-                          ->select('Student.*','Classroom.ClassRoomName', 'Classroom.classRoomID')
-                          ->get();
+      $aYear =  DB::table('anneeScolaire')->orderBy('academicYear', 'desc')
+                              ->select('academicYear')
+                              ->first();
 
 
-      for ($i=0; $i < $studentByclassroom->count() ; $i++) {
+      $currentYearClassroom = DB::table('Classroom')
+                              ->join('Student', 'Classroom.classRoomID', '='
+                              ,'Student.classRoomID')
+                              ->join('Enrollment', 'Enrollment.classRoomID', '=', 'Enrollment.classRoomID')
+                              ->where('Enrollment.academicYear', $aYear->academicYear)
+                              ->where('Student.classRoomID', $reqData['classroom'])
+                              ->select('Classroom.ClassRoomName', 'Classroom.classRoomID', 'Student.*')
+                              ->distinct()->get();
 
-          $studMatricule = $studentByclassroom[$i]->studentMatricule;
-          $grades = CourseGrade::create([
+
+
+
+
+      for ($i=0; $i < $currentYearClassroom->count() ; $i++) {
+
+          $studMatricule = $currentYearClassroom[$i]->studentMatricule;
+
+          $grades[] = CourseGrade::create([
             'studentMatricule' => $studMatricule
             ,'semestreID' => $reqData['semestre']
             ,'TestID' => $reqData['testID']
@@ -81,6 +94,8 @@ class EvaluationsController extends Controller
 
          ]);
       }
+
+      //dd($grades);
 
       return redirect('/home');
 

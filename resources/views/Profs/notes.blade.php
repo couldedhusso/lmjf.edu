@@ -1,57 +1,55 @@
 @extends('templates.TemplateDashboard')
 
 @section('section-content')
-  {{-- <!-- sidebar -->
-  <div class="col-md-3 col-sm-2">
-    <section id="sidebar">
-       <header><h3>Espace professeur</h3></header>
-       @include('layouts.sidebar')
-    </section><!-- /#sidebar -->
- </div><!-- /.col-md-3 --> --}}
+<div class="col-md-9">
 
- <div class="col-md-3 col-sm-3">
-     <div class="full-height-scroll">
-         <ul class="list-group elements-list">
-               @foreach($classrooms as $classroom)
-                  <li class="list-group-item">
-                       <a style="width:100%" data-toggle="tab" href="#{{$classroom->classRoomID}}">
-                           <small class="pull-right text-muted"> {{$classroom->classRoomID}}</small>
-                           <strong>{{$classroom->ClassRoomName}}</strong>
-                       </a>
-                   </li>
-               @endforeach
-         </ul>
+</div>
+  <div class="ui ordered steps">
+    <div class="completed step">
+      <div class="content">
+        <div class="title">Evaluation</div>
+        <div class="description">Saisir les informations de l'évaluation</div>
 
-     </div>
- </div>
+      </div>
+    </div>
+    <div class="completed step">
+      <div class="content">
+        <div class="title">Matière</div>
+        <div class="description">Selectionner le professeur et la discipline </div>
+      </div>
+    </div>
+    <div class="active step">
+      <div class="content">
+        <div class="title">Note</div>
+        <div class="description">Saisir les notes</div>
+      </div>
+    </div>
+  </div>
 
- <div class="col-md-7 col-sm-7">
-     <div class="full-height-scroll white-bg border-left">
+ <div class="col-md-8">
 
-         <div class="element-detail-box">
-             @foreach($classrooms as $classroom)
-                           <div class="tab-content">
-                                 <div id="{{$classroom->classRoomID}}" class="tab-pane">
-                                   <form class="form-inline" action="{{url('/gradeEvaluation')}}" method="post">
+    <form class="form-inline" action="{{url('/gradeEvaluation')}}" method="post">
 
-                                     <input type="hidden" name="classRoomID" value="{{$classroom->classRoomID}}">
+                                     {{-- <input type="hidden" name="classRoomID" value="{{$classroom->classRoomID}}"> --}}
                                      {{ csrf_field() }}
                                      <div class="pull-right">
-                                           <input class="ui primaary button right floated" type="submit" name="name" value="Poster le formulaire">
+                                        <input class="ui primary button right floated" type="submit" name="name" value="Poster le formulaire">
                                      </div>
+                                     <br>
                                      <div class="form-group">
-                                        <label for="pwd">Periode : {{$semestre->semestreDescription}}</label>
+                                        {{-- <label for="pwd">Periode : {{$semestre->semestreDescription}}</label> --}}
 
-                                        <input type="hidden" name="semestre" value="{{$semestre->semestreID}}">
+                                        <input type="hidden" name="semestre" value="{{$semestre}}">
+                                        <input type="hidden" name="classroom" value="{{$classroom}}">
                                         <input type="hidden" class="form-control" id="pwd">
 
                                      </div>
 
                                      <div class="form-group">
-                                        <label for="pwd" class="pull-left">Enseingnant : {{$teacher->userFirstName.' '.$teacher->userLastName}}</label>
+                                        {{-- <label for="pwd" class="pull-left">Enseingnant : {{$teacher->userFirstName.' '.$teacher->userLastName}}</label> --}}
 
                                         <input type="hidden" class="form-control" id="pwd">
-                                        <input type="hidden" name="testID" value="{{$courseTest->CoursetestID}}">
+                                        <input type="hidden" name="testID" value="{{$testID}}">
 
                                      </div>
 
@@ -67,10 +65,8 @@
                                           </tr>
                                        </thead>
                                        <tbody>
-                                           @foreach($studentByclassroom as $classe)
+                                           @foreach($currentYearClassroom as $classe)
                                            {{-- @foreach($classe->Student as $stud) --}}
-                                             @if($classroom->classRoomID == $classe->classRoomID)
-
                                                <tr class="read">
                                                    <td width="20%" class="">{{$classe->studentMatricule}}</td>
                                                    <td width="70%" class="">{{$classe->studentName." ".$classe->studentLastName}}</td>
@@ -78,18 +74,10 @@
                                                      <input type="text" name="{{$classe->studentMatricule}}">
                                                    </td>
                                                </tr>
-                                            @endif
                                            @endforeach
                                        </tbody>
                                    </table>
-                                 </div>
                                </form>
                            </div>
-
-             @endforeach
-         </div>
-
-     </div>
- </div>
 
 @endsection

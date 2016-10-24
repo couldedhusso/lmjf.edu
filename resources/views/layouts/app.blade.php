@@ -11,17 +11,17 @@
     <title>LMJF</title>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" type="text/css">
-    <link rel="stylesheet" href="https://design.google.com/css/site.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/jquery.slider.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap-select.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('https://design.google.com/css/site.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/jquery.slider.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.css')}}" type="text/css">
 
 
 
-    <link rel="stylesheet" href="assets/css/fileinput.min.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/fileinput.min.css')}}" type="text/css">
 
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" type="text/css">
 
     <!-- creative-tim CSS     -->
 
@@ -41,7 +41,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{asset('/css/app.css')}}" rel="stylesheet">
 
     <style media="screen">
 
@@ -166,6 +166,12 @@
         </a> --}}
       </div>
     </div>
+    <footer class="footer">
+          <div class="container">
+
+          </div>
+    </footer>
+
 </div>
         {{-- <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/text-only/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" data-upgraded=",MaterialButton,MaterialRipple">View Source<span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 255.952px; height: 255.952px; transform: translate(-50%, -50%) translate(70px, 17px);"></span></span></a> --}}
     </div>
@@ -177,7 +183,6 @@
     <script src="{{asset('assets/semantic/semantic.min.js')}}"></script>
 
     <script type="text/javascript">
-        $('.menu .item').tab();
         $('select.dropdown').dropdown();
         $('.ui.checkbox').checkbox();
         $('.ui.radio.checkbox').checkbox();
