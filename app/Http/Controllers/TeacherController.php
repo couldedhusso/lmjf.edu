@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Enseingnant;
+use App\Teacher;
 use App\ProfPrincipal;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -62,8 +62,8 @@ class TeacherController extends Controller
               'userFirstName' => $reqdata['teacherFirstName'],
               'userLastName' => $reqdata['teacherLastName'],
               'userContact' => $reqdata['teacherContact'],
-              // 'email' => $reqdata['teacherEmail'],
-              // 'password' => bcrypt($reqdata['password']),
+              'email' => $reqdata['teacherFirstName'].$reqdata['teacherLastName'].'@lmjf.com',
+              'password' => bcrypt('lmjf'),
           ]);
 
           // grant Enseingnant role to user
@@ -72,7 +72,7 @@ class TeacherController extends Controller
           // mettre à jour la table Enseingnant
           foreach ($reqDataClassroom as $value) {
 
-              $teacher = Enseingnant::create([
+              $teacher = Teacher::create([
                  'idTeacher' => $user->id,
                  'CourseID' => $reqDataCourse,
                  'classRoomID' => $value,
