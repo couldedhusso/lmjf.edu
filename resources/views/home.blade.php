@@ -27,7 +27,7 @@
 
                 <div class="col-md-4">
                  <div class="panel panel-default">
-                     <div class="panel-heading header">Inscrits pour </div>
+                   <div class="panel-heading">Inscrits pour l'anneé académiq.  {{$aYear->academicYear}} </div>
 
                      <div class="panel-body text-center">
                        <span style="font-size:45px">{{$currentAcademiqueYearStudent->count()}}</span>
