@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Enseingnant extends Model
+class Enrollment extends Model
 {
     /**
      * The table associated with the model.
