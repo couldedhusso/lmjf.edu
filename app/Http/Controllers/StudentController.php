@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Student;
 use App\Teacher;
+use App\Enrollment;
 use App\Parents;
+
+use DB;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -43,6 +46,8 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+       $aYear = DB::table('anneeScolaire')->orderBy('academicYear', 'desc')
+                         ->select('academicYear')->first();
 
         //$avatar = Input::get()
         $reqdata = Input::get('studentDatas');
@@ -59,7 +64,17 @@ class StudentController extends Controller
 
         // create parent student
         $studentparent = Parents::create($dParents);
-    
+
+        $studEnrol = DB::table('Enrollment')->where('classRoomID',
+                              $reqdata['classroom'])->count();
+
+        if ($studEnrol == 0) {
+            $newStudent = Student::create([
+                'academicYear' => $aYear->academicYear,
+                'classRoomID'  => $reqdata['classroom']
+            ]);
+
+       }
 
       //  $studentparent = Parent::create([$studresp]);
 
@@ -81,7 +96,9 @@ class StudentController extends Controller
             ,'academicYear' => $reqdata['anneeScolaire']
             ,'studentParentID' => $studentparent->id
         ];
+
         $newStudent = Student::create($stud);
+
 
         return redirect('/home');
 
