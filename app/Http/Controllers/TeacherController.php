@@ -58,11 +58,17 @@ class TeacherController extends Controller
           $reqDataCourse = Input::get('CourseID');
           $pp = Input::get('prof_principal');
 
+          if ($reqdata['teacherEmail'] == "") {
+             $email = $reqdata['teacherFirstName'].$reqdata['teacherLastName'].'@lmjf.com';
+          }else {
+            $email = $reqdata['teacherEmail'];
+          }
+
           $user = User::create([
               'userFirstName' => $reqdata['teacherFirstName'],
               'userLastName' => $reqdata['teacherLastName'],
               'userContact' => $reqdata['teacherContact'],
-              'email' => $reqdata['teacherFirstName'].$reqdata['teacherLastName'].'@lmjf.com',
+              'email' => $email,
               'password' => bcrypt('lmjf'),
           ]);
 
