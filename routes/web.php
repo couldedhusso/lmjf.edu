@@ -286,6 +286,8 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post('update_student_info', 'HomeController@update_student_info');
   Route::get('delete_student/{id}', 'HomeController@delete_student');
   Route::get('update_student_mark/{id}/{classromid}', 'HomeController@update_student_mark');
+  Route::get('delete_classroom/{id}', 'HomeController@delete_classroom');
+
 
   Route::get('delete_Coursetest/{id}', function($id){
       $deltest = DB::table('courseTest')->where('CoursetestID', $id)->delete();

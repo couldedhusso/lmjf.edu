@@ -221,8 +221,9 @@ class HomeController extends Controller
                      ->select('academicYear')->first();
     }
 
-    public function delete_classeroom($id){
-        $delclassroom = DB::table('Classroom')->where('id', $id)->delete();
+    public function delete_classroom($id){
+        DB::table('Classroom')->join('Student', 'Classroom.classRoomID', '=',
+        'Student.classRoomID')->where('Classroom.classRoomID', $id)->delete();
         return redirect()->action('HomeController@index');
     }
 
