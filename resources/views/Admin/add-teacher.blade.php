@@ -42,7 +42,7 @@
            </div>
          </div>
 
-         <div class="field">
+         {{-- <div class="field">
            <label>Paramètres de connexion</label>
            <div class="fields">
              <div class="nine wide field">
@@ -52,7 +52,7 @@
                <input name="password" placeholder=" < lmjf > est mot de passe par defaut" type="password">
              </div>
            </div>
-         </div>
+         </div> --}}
 
          <div class="field">
            <div class="fields">

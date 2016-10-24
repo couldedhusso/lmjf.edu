@@ -11,7 +11,7 @@
 </div>
 <div class="col-md-12">
 
-  <table class="ui table">
+  <table class="ui orange table">
 
   @if($currentSemesterEval->count() == 0)
     <tr class="unread">
