@@ -37,44 +37,78 @@
                Resultat de la recherche
              {{-- </div> --}}
            </h2>
-          <thead>
-             <tr>
-               <th>Id</th>
-               <th>Nom & prenoms</th>
-               <th>Discipline</th>
-               <th></th>
-             </tr>
-          </thead>
-          <tbody>
-            @foreach($results_search as $teacher)
-              <tr class="unread">
-                  <td class="">{{$teacher->id}}</td>
-                  <td class="">{{$teacher->userFirstName .' '.$teacher->userLastName}}</td>
-                  <td >{{$teacher->courseName}}</td>
-                  <td class="actions">
-                    <div class="btn-group pull-right">
-                         <a class="btn btn-white-grey btn-sm"  style="margin-right:5px" title="Modifier" onclick="event.preventDefault();
-                                  document.getElementById('modifier-teacher').submit();"><i  class="fa fa-pencil" aria-hidden="true"></i></a>
 
-                          <form id="modifier-teacher" action="{{ url('/update_teacher_info') }}" method="POST" style="display: none;">
-                                      {{ csrf_field() }}
-                                     <input type="hidden" name="teacher_id" value="{{$teacher->id}}">
-                          </form>
+           @if($table == "Teacher")
 
-                         <a class="btn btn-white-red btn-sm" onclick="event.preventDefault();
-                                  document.getElementById('supprimer-teacher').submit();" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-
-                                  <form id="supprimer-teacher" action="{{ url('/delete-teacher') }}" method="POST" style="display: none;">
-                                      {{ csrf_field() }}
-                                      <input type="hidden" name="teacher_id" value="{{$teacher->id}}">
-                                  </form>
-                         {{-- <a href="{{url('notes-des-evalautions')}}" class="btn btn-white-grey btn-sm" title="Saisir les notes"><i class="fa fa-plus"></i></a> --}}
-                     </div>
-                  </td>
+             <thead>
+                <tr>
+                  <th>Nom & prenoms</th>
+                  <th>Discipline</th>
+                  <th></th>
                 </tr>
-            @endforeach
-          </tbody>
-         @endif
+             </thead>
+             <tbody>
+               @foreach($results_search as $teacher)
+                 <tr class="unread">
+                     {{-- <td class="">{{$teacher->id}}</td> --}}
+                     <td class="">{{$teacher->userFirstName .' '.$teacher->userLastName}}</td>
+                     <td >{{$teacher->courseName}}</td>
+                     <td class="actions">
+                       <div class="btn-group pull-right">
+                         {{-- onclick="event.preventDefault();
+                                  document.getElementById('modifier-teacher').submit();" --}}
+                            <a href="{{url('update_teacher_info').'/'.$teacher->id}}" class="btn btn-white-grey btn-sm"  style="margin-right:5px" title="Modifier"
+                             ><i  class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Modifier</a>
+
+                            <a href="{{url('delete_teacher').'/'.$teacher->id}}" class="btn btn-white-red btn-sm" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+
+                                     <form id="supprimer-teacher" action="{{ url('/delete-teacher') }}" method="POST" style="display: none;">
+                                         {{ csrf_field() }}
+                                         <input type="hidden" name="teacher_id" value="{{$teacher->id}}">
+                                     </form>
+                            {{-- <a href="{{url('notes-des-evalautions')}}" class="btn btn-white-grey btn-sm" title="Saisir les notes"><i class="fa fa-plus"></i></a> --}}
+                        </div>
+                     </td>
+                   </tr>
+               @endforeach
+             </tbody>
+            @else
+
+              <thead>
+                 <tr>
+                   <th>Nom & prenoms</th>
+                   <th>Classe</th>
+                   <th></th>
+                 </tr>
+              </thead>
+              <tbody>
+                @foreach($results_search as $teacher)
+                  <tr class="unread">
+                      {{-- <td class="">{{$teacher->id}}</td> --}}
+                      <td class="">{{$teacher->studentName .' '.$teacher->studentLastName}}</td>
+                      <td >{{$teacher->ClassRoomName}}</td>
+                      <td class="actions">
+                        <div class="btn-group pull-right">
+                             <a href="{{url('get_student').'/'.$teacher->classRoomID.'/'.$teacher->studentMatricule}}" class="btn btn-white-grey btn-sm"  style="margin-right:5px" title="Modifier"
+                              ><i  class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Modifier</a>
+
+                             <a href="{{url('delete_student').'/'.$teacher->studentMatricule}}" class="btn btn-white-red btn-sm" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+
+                                      <form id="supprimer-teacher" action="{{ url('/delete-teacher') }}" method="POST" style="display: none;">
+                                          {{ csrf_field() }}
+                                          <input type="hidden" name="teacher_id" value="{{$teacher->studentMatricule}}">
+                                      </form>
+                             {{-- <a href="{{url('notes-des-evalautions')}}" class="btn btn-white-grey btn-sm" title="Saisir les notes"><i class="fa fa-plus"></i></a> --}}
+                         </div>
+                      </td>
+                    </tr>
+                @endforeach
+              </tbody>
+
+            @endif
+
+           @endif
+
        </table>
 
           {{-- <h2 class="ui header" style="font-size:inherit">Champ trouvé(n)</h2> --}}

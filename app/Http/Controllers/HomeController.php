@@ -93,7 +93,6 @@ class HomeController extends Controller
          $results_search = $this->getTeacherData($qd);
 
        }else {
-
           $results_search = $this->getStudentData($qd);
        }
 
@@ -114,7 +113,14 @@ class HomeController extends Controller
 
         if ($params['search-by'] == 'nom_prenom') {
 
-            $xvalue = explode(" ",$params['teacher']);
+            // $xvalue = explode(" ",$params['teacher']);
+            // if (count($xvalue) > 2) {
+            //   $xname = "";
+            //   for ($i=1; $i < count($xvalue); $i++) {
+            //     $xname += $xname.' '.$xvalue[$i];
+            //   }
+            // }
+            // dd($xvalue);
             $searchedTeacher = DB::table('Course')
                       ->join('Teacher', 'Course.courseID', '=','Teacher.courseID')
                       ->join('users', 'users.id', '=','Teacher.idTeacher')
@@ -130,7 +136,7 @@ class HomeController extends Controller
                     ->where('Course.courseID', $params['classroom'] )
                     ->select('users.id', 'users.userFirstName', 'users.userLastName',
                               'users.userContact', 'Course.courseName')
-                    ->get();
+                    ->distinct()->get();
         }
 
         return $searchedTeacher;
@@ -154,7 +160,7 @@ class HomeController extends Controller
                                                     ,'Student.classRoomID')
                                     ->where('Student.studentMatricule',  $params['studentMatricule'])
                                     // ->where('Enrollment.academicYear',  $params['academicYear'])
-                                    ->select('Student.*', 'Classroom.ClassRoomName')
+                                    ->select('Student.*', 'Classroom.ClassRoomName', 'Classroom.classRoomID')
                                     ->distinct()->get();
             } else {
                   $foundStudent = DB::table('Classroom')
@@ -164,7 +170,7 @@ class HomeController extends Controller
                                                       ,'Student.classRoomID')
                                       ->where('Student.classRoomID',  $params['classroom'])
                                       // ->where('Enrollment.academicYear',  $params['academicYear'])
-                                      ->select('Student.*', 'Classroom.ClassRoomName')
+                                      ->select('Student.*', 'Classroom.ClassRoomName', 'Classroom.classRoomID')
                                       ->distinct()->get();
             }
 
@@ -174,13 +180,13 @@ class HomeController extends Controller
 
     private function getTeacher(){
 
-        return  DB::table('Course')
-                    ->join('Teacher', 'Course.courseID', '='
-                    ,'Teacher.courseID')
+        return  DB::table('Teacher')
+                    // ->join('Teacher', 'Course.courseID', '='
+                    // ,'Teacher.courseID')
                     ->join('users', 'users.id', '='
                     ,'Teacher.idTeacher')
-                    ->select('users.*', 'Course.courseName')
-                    ->get();
+                    ->select('users.*')
+                    ->distinct()->get();
     }
 
     private function getTeacherByCourses(){
@@ -424,8 +430,11 @@ class HomeController extends Controller
       ->join('Classroom', 'courseTest.classRoomID','=','Classroom.classRoomID')
       ->join('courseGrade', 'courseGrade.testID', '='
       ,'courseTest.CoursetestID')
+      ->join('Semestre', 'courseGrade.semestreID', '='
+      ,'Semestre.semestreID')
       ->where('Classroom.classRoomID', $classroomid)
       ->where('courseTest.CoursetestID', $id)
+      ->where('Semestre.semestreID', $semestre->semestreID)
       ->select('courseTest.CoursetestID', 'courseGrade.studentMatricule', 'courseGrade.Grade')
       ->get();
 
@@ -443,7 +452,8 @@ class HomeController extends Controller
      return view('Administration.update-eval-student', [
        'testid' => $id,
        'currentYearClassroom' => $currentYearClassroom,
-       'eval' => $eval
+       'eval' => $eval,
+       'semestre'=> $semestre->semestreID
      ]);
 
 
@@ -695,8 +705,12 @@ class HomeController extends Controller
                           ->select('Student.*')
                           ->distinct()->get();
 
-       $currentAcademiqueYearStudent = DB::table('Student')->where('academicYear',
-                                                  $aYear->academicYear)->get();
+       $currentAcademiqueYearStudent = DB::table('Classroom')
+                                 ->join('Enrollment', 'Enrollment.classRoomID', '=',
+                                 'Classroom.classRoomID')
+                                 ->join('Student', 'Classroom.classRoomID', '=','Student.classRoomID')
+                                 ->where('Enrollment.academicYear', $aYear->academicYear)
+                                 ->get();
 
 
 

@@ -1,7 +1,7 @@
 
 <div class="col-md-12" style="margin-bottom:10px;">
   <div>
-      <span class="pull-left" style="font-size:20px;">Liste de classes</span>
+      <span class="pull-left" style="font-size:20px;">Evaluations par classe</span>
       <div class="btn-group pull-right">
            <a href="{{url('saisir-les-notes/1')}}" class="btn btn-white-grey btn-sm" style="margin-right:5px" title=""><i class="fa fa-plus" aria-hidden="true"></i>
              &nbsp;Saisir les notes

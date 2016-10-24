@@ -12,7 +12,7 @@
 
 
 <h4 class="ui dividing header" >pour enseingnants</h4>
-<form id="search-form-name" class="ui form" role="form" method="POST" action="{{ url('/get-search-result') }}">
+{{-- <form id="search-form-name" class="ui form" role="form" method="POST" action="{{ url('/get-search-result') }}">
        {{ csrf_field() }}
        <input type="hidden" name="search-key" value="Teacher">
        <input type="hidden" name="search[search-by]" value="nom_prenom">
@@ -34,7 +34,7 @@
        <i class="Find icon"></i>
        Rechercher
      </button>
-</form>
+</form> --}}
 
 <form id="search-form-course" class="ui form" role="form" method="POST" action="{{ url('/get-search-result') }}">
        {{ csrf_field() }}

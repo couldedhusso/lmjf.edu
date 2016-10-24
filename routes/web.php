@@ -311,6 +311,8 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post('studReg', 'StudentController@store');
   Route::post('newEvaluation', 'EvaluationsController@store');
   Route::post('gradeEvaluation', 'EvaluationsController@saisie_des_notes');
+  Route::post('update_mark', 'EvaluationsController@update_mark');
+
 });
 
 
@@ -323,50 +325,64 @@ Route::get('/home', 'HomeController@index');
 
 ///url for dummies datas
 
-// Route::get('dumiesStudents', function(){
-//
-//       // it_creates_at_least_hundred_fake_users
-//
-//       // $users = factory(App\User::class, mt_rand(100, 1000))->create();
-//       // $user_count = count($users) >= 100;
-//
-//     $courses =
-//
-//     $teacher = [];
-//     $faker = Faker\Factory::create();
-//
-//     for ($i = 0; $i <  5; $i++) {
-//         $users[] = App\User::create([
-//             'email' => $faker->randomNumber($nbDigits = 4),
-//             'password' => bcrypt('lmjf'),
-//             'userFirstName' => $faker->firstNameFemale,
-//             'userLastName' => $faker->name,
-//             'userContact' => $faker->email,
-//
-//             'studentLastName' => $faker->firstNameFemale,
-//             'studentBirthdate' =>$faker->date($format = 'Y-m-d', $max = 'now'),
-//             'studentSexe' => 'F',
-//             'studentBirthPlace' => $faker->city,
-//             'studentRegime' => '-',
-//             'studentInterne' => '-',
-//             'studentAffecte' => 'OUI',
-//             'studentRedoublant' => '0'
-//         ]);
-//
-//
-//         $teacher[] = App\Teacher::create([
-//             'ClassRoomName' => Auth::user()->id,
-//             'CourseID' => 1,
-//             'classRoomID' => $faker->randomDigit
-//         ]);
-//
-//       }
-//
-//       // $teacher[] = App\Teacher::create([
-//       //     'idTeacher' => Auth::user()->id,
-//       //     'CourseID' => 1,
-//       //     'classRoomID' => 8
-//       // ]);
-//
-//
-// });
+Route::get('dumiesStudents', function(){
+
+      // it_creates_at_least_hundred_fake_users
+
+      // $users = factory(App\User::class, mt_rand(100, 1000))->create();
+      // $user_count = count($users) >= 100;
+
+    // $courses =
+
+    // $teacher = [];
+    // $faker = Faker\Factory::create();
+    //
+    // for ($i = 0; $i <  1; $i++) {
+    //     $users = App\User::create([
+    //         'email' => $faker->randomNumber($nbDigits = 4),
+    //         'password' => bcrypt('lmjf'),
+    //         'userFirstName' => $faker->firstNameMale,
+    //         'userLastName' => $faker->name,
+    //         'userContact' => $faker->email
+
+
+            // $teacher[] = App\Teacher::create([
+            //     'ClassRoomName' => Auth::user()->id,
+            //     'CourseID' => $faker->randomDigit,
+            //     'classRoomID' => $faker->randomDigit
+
+            // 'studentMatricule', 'studentParentID', 'responsableStudent', 'contactresponsableStudent','classRoomID', 'studentName',
+            // 'studentLastName','studentBirthdate', 'studentSexe', 'studentBirthPlace',
+            // 'studentRegime', 'studentInterne', 'studentAffecte','studentRedoublant', 'academicYear'
+
+
+            // 'studentMatricule' => $faker->randomNumber($nbDigits = 4),
+            // 'studentLastName' => $faker->firstNameFemale,
+            // 'studentBirthdate' =>$faker->date($format = 'Y-m-d', $max = 'now'),
+            // 'studentSexe' => 'F',
+            // 'studentBirthPlace' => $faker->city,
+            // 'studentRegime' => '-',
+            // 'studentInterne' => '-',
+            // 'studentAffecte' => 'OUI',
+            // 'studentRedoublant' => '0',
+            // 'classRoomID' => 25
+      //   ]);
+      //
+      //
+      //   $teacher[] = App\Teacher::create([
+      //       'idTeacher' => $users->id,
+      //       'ClassRoomName' => Auth::user()->id,
+      //       'CourseID' => $faker->randomDigit,
+      //       'classRoomID' => $faker->randomDigit
+      //   ]);
+      //
+      // }
+
+      // $teacher[] = App\Teacher::create([
+      //     'idTeacher' => Auth::user()->id,
+      //     'CourseID' => 1,
+      //     'classRoomID' => 8
+      // ]);
+
+
+});

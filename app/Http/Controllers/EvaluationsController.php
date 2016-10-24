@@ -102,4 +102,21 @@ class EvaluationsController extends Controller
   }
 
 
+  public function update_mark(Request $request){
+      $testid = Input::get('testid');
+      $semestre = Input::get('semestre');
+      $notes = Input::get('notes');
+
+      foreach ($notes as $key => $value) {
+            DB::table('courseGrade')
+                      ->where('studentMatricule', $key)
+                      ->where('semestreID', $semestre)
+                      ->where('testID', $testid)
+                      ->update(['Grade' => $value]);
+      }
+
+      return redirect()->action('HomeController@index');
+  }
+
+
 }
