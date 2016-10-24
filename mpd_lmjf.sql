@@ -9,10 +9,10 @@ CREATE TABLE IF NOT EXISTS `lmjfdb`.`anneeScolaire` (
 
 CREATE TABLE IF NOT EXISTS `lmjfdb`.`ProfPrincipal` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `idTeacher` INT(11) NOT NULL,
-    `classRoomID` INT(11) NOT NULL,
-    `created_at` TIMESTAMP NOT NULL,
-    `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `idTeacher` INT(11)  NULL,
+    `classRoomID` INT(11)  NULL,
+    `created_at` TIMESTAMP  NULL,
+    `updated_at` TIMESTAMP  NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARACTER SET=UTF8;
 
@@ -48,9 +48,9 @@ CREATE TABLE IF NOT EXISTS `lmjfdb`.`CourseChild` (
 
 CREATE TABLE IF NOT EXISTS `lmjfdb`.`courseTest` (
     `CoursetestID` INT(11) NOT NULL AUTO_INCREMENT,
-    `semestreID` INT(11) NOT NULL,
-    `CourseChildID` INT(11) NOT NULL,
-    `teacherID` INT(11) NOT NULL,
+    `semestreID` INT(11)  NULL,
+    `CourseChildID` INT(11)  NULL,
+    `teacherID` INT(11)  NULL,
     `classRoomID` INT(11)  NULL,
     `testName` VARCHAR(45) NULL DEFAULT NULL,
     `testDescription` VARCHAR(45) NULL DEFAULT NULL,
@@ -66,10 +66,10 @@ CREATE TABLE IF NOT EXISTS `lmjfdb`.`courseTest` (
 CREATE TABLE IF NOT EXISTS `lmjfdb`.`courseGrade` (
     `studentMatricule` INT(11) NOT NULL,
     `semestreID` INT(11) NOT NULL,
-    `testID` INT(11) NOT NULL,
+    `testID` INT(11)  NULL,
     `Grade` VARCHAR(45) NULL DEFAULT NULL,
     `Appreciation` VARCHAR(45) NULL DEFAULT NULL,
-    `created_at` TIMESTAMP NOT NULL,
+    `created_at` TIMESTAMP  NULL,
     `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`studentMatricule` , `semestreID` , `testID`)
 )  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8;
@@ -111,14 +111,14 @@ CREATE TABLE IF NOT EXISTS `lmjfdb`.`Enrollment` (
 
 CREATE TABLE IF NOT EXISTS `lmjfdb`.`Student` (
     `studentMatricule` VARCHAR(45) NOT NULL,
-    `classRoomID` INT(11) NOT NULL,
-    `studentParentID` INT(11) NOT NULL,
-    `studentName` VARCHAR(255) NOT NULL,
-    `studentLastName` VARCHAR(255) NOT NULL,
-    `studentBirthdate` VARCHAR(45) NOT NULL,
-    `studentSexe` VARCHAR(1) NOT NULL,
+    `classRoomID` INT(11)  NULL,
+    `studentParentID` INT(11)  NULL,
+    `studentName` VARCHAR(255)  NULL,
+    `studentLastName` VARCHAR(255)  NULL,
+    `studentBirthdate` VARCHAR(45)  NULL,
+    `studentSexe` VARCHAR(1)  NULL,
     `studentBirthPlace` VARCHAR(225) NULL DEFAULT NULL,
-    `responsableStudent` VARCHAR(45) NOT NULL,
+    `responsableStudent` VARCHAR(45)  NULL,
     `contactresponsableStudent` VARCHAR(45) NOT NULL,
     `studentRegime` VARCHAR(45) NULL,
     `studentInterne` VARCHAR(45) NULL,
