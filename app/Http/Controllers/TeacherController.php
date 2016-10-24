@@ -62,8 +62,8 @@ class TeacherController extends Controller
               'userFirstName' => $reqdata['teacherFirstName'],
               'userLastName' => $reqdata['teacherLastName'],
               'userContact' => $reqdata['teacherContact'],
-              'email' => $reqdata['teacherEmail'],
-              'password' => bcrypt($reqdata['password']),
+              // 'email' => $reqdata['teacherEmail'],
+              // 'password' => bcrypt($reqdata['password']),
           ]);
 
           // grant Enseingnant role to user
