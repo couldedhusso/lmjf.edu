@@ -69,7 +69,7 @@ class StudentController extends Controller
                               $reqdata['classroom'])->count();
 
         if ($studEnrol == 0) {
-            $newStudent = Student::create([
+            $newStudent = Enrollment::create([
                 'academicYear' => $aYear->academicYear,
                 'classRoomID'  => $reqdata['classroom']
             ]);
